@@ -1,0 +1,16 @@
+{
+    "name": "main/core",
+    "description": "This is my freamwork core",
+    "autoload": {
+        "psr-4": {
+            "Main\\Core\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kooroshh",
+            "email": "kooroshsoleymani98@gmail.com"
+        }
+    ],
+    "require": {}
+}
