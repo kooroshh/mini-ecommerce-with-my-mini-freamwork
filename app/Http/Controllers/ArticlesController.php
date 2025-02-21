@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Articles;
 use Main\Core\Controller;
 use Main\Core\Request;
 
 class ArticlesController extends Controller
 {
-    public function index(Request $request, $id): string
+    public function index(Request $request): string
     {
         var_dump($request->all());
-        return "Articles Page With $id Id";
+        return "Articles Page With";
     }
 
     public function createPost(Request $request)
@@ -32,7 +33,7 @@ class ArticlesController extends Controller
 
     public function createGet()
     {
-
+        var_dump((new Articles())->where('id', "7", ">")->where("id","12","<")->get());
         return $this->render('articles.create', [
             'title' => 'hello roocket',
             'auth' => true

@@ -110,7 +110,7 @@ class Router
 
         if(is_string($callback))
         {
-            return (new View)->render("about-me");
+            return (new View)->render("$callback");
         }
 
         if(is_array($callback))

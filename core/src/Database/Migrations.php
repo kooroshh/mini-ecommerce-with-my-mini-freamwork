@@ -82,7 +82,7 @@ class Migrations
     private function log($message)
     {
         $date = date("Y-m-d H:i:s");
-        echo "[$date] - $message";
+        echo "[$date] - $message" . PHP_EOL;
     }
 
     private function createMigrationsTable()
