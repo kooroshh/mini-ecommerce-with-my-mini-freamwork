@@ -7,8 +7,9 @@ class Database
 {
     public PDO $pdo;
     public Migrations $migration;
+    protected static Database $instance;
 
-    public function __construct()
+    private function __construct()
     {
         try{
             $this->pdo = new PDO("mysql:host=localhost;dbname=mvc","root","");
@@ -18,6 +19,14 @@ class Database
             throw new Exception("404 Not Found");
         }
 
+    }
+
+    public static function getInstance()
+    {
+        if(empty(self::$instance))
+            self::$instance = new Database();
+
+        return self::$instance;
     }
 
 

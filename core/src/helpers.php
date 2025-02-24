@@ -4,6 +4,8 @@
 
 use Main\Core\Application;
 use Main\Core\Request;
+use Main\Core\Response;
+use Main\Core\Session;
 
 if(!function_exists("dd"))
 {
@@ -31,3 +33,30 @@ if(!function_exists("request"))
         return app()->request->input($key);
     }
 }
+
+if(!function_exists("response"))
+{
+    function response() : Response
+    {
+        return app()->response;
+    }
+}
+
+if(!function_exists("redirect"))
+{
+    function redirect(string $url) : Response
+    {
+        return response()->redirect($url);
+    }
+}
+
+if(!function_exists("session"))
+{
+    function session() : Session
+    {
+        return app()->session;
+    }
+}
+
+
+

@@ -13,11 +13,12 @@ class Model extends Database
     protected int $limit = 0;
     protected array $whereList = [];
     protected array $valuesForBind = [];
+    protected Database $db;
+
     public function __construct()
     {
-        parent::__construct();
+        $this->db = app()->db;
     }
-
 
     public function create(array $data) : bool
     {
@@ -74,6 +75,7 @@ class Model extends Database
 
 
 
+
     public function where(string $name, $value, string $operator = "=") : self
     {
 
@@ -81,6 +83,11 @@ class Model extends Database
 
         $this->valuesForBind[$name] = $value;
 
+        return $this;
+    }
+    public function from(string $table) : self
+    {
+        $this->table = $table;
         return $this;
     }
 
@@ -152,7 +159,7 @@ class Model extends Database
 
     public function setStatement(string $query) : void
     {
-        $this->statement = $this->pdo->prepare($query);
+        $this->statement = $this->db->pdo->prepare($query);
     }
 
 }

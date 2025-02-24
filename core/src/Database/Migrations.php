@@ -5,9 +5,7 @@ use PDO;
 
 class Migrations
 {
-    public function __construct(
-        public Database $db
-    ){}
+    
 
 
     public function applyMigrations()
