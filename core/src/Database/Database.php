@@ -1,6 +1,8 @@
 <?php namespace Main\Core\Database;
 
 use Exception;
+use Main\Core\Database\Migrations;
+use Main\Core\Exceptions\SqlException;
 use PDO;
 
 class Database
@@ -11,12 +13,14 @@ class Database
 
     private function __construct()
     {
+
         try{
             $this->pdo = new PDO("mysql:host=localhost;dbname=mvc","root","");
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->migration = new Migrations($this);
-        }catch(Exception $e){
-            throw new Exception("404 Not Found");
+        }catch(Exception $e)
+        {
+            echo "Connection Error";die;
         }
 
     }

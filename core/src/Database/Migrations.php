@@ -5,8 +5,11 @@ use PDO;
 
 class Migrations
 {
-    
-
+    protected Database $db;
+    public function __construct(Database $database)
+    {
+        $this->db = $database;
+    }
 
     public function applyMigrations()
     {
@@ -45,6 +48,7 @@ class Migrations
 
     public function rollbackMigrations()
     {
+
         $appliedMigrations = $this->getAppliedMigrations();
         $lastBatch = $this->getLastBatchNumber();
 

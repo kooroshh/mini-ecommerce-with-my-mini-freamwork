@@ -1,5 +1,6 @@
 <?php namespace Main\Core;
 
+use Main\Core\Validations\Rules\ExistsRule;
 use Main\Core\Validations\Rules\UniqueRule;
 use Rakit\Validation\Validation;
 use Rakit\Validation\Validator;
@@ -13,6 +14,7 @@ class Controller
         $validator = new Validator($messages);
 
         $validator->addValidator('unique', new UniqueRule);
+        $validator->addValidator('exist', new ExistsRule);
 
         $validation = $validator->make($data, $rule);
 

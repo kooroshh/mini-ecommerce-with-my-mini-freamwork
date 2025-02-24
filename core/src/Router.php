@@ -1,6 +1,6 @@
 <?php namespace Main\Core;
 
-
+use Main\Core\Exceptions\NotFoundException;
 use ReflectionMethod;
 
 class Router
@@ -101,7 +101,7 @@ class Router
 
             if(!$routCallback)
             {
-                throw new \Exception("404 Not Found");
+                throw new NotFoundException();
             }
 
             $callback = $routCallback[0];

@@ -3,6 +3,7 @@
 // Global Functions
 
 use Main\Core\Application;
+use Main\Core\Auth;
 use Main\Core\Request;
 use Main\Core\Response;
 use Main\Core\Session;
@@ -55,6 +56,14 @@ if(!function_exists("session"))
     function session() : Session
     {
         return app()->session;
+    }
+}
+
+if(!function_exists("auth"))
+{
+    function auth() : Auth
+    {
+        return app()->auth;
     }
 }
 
