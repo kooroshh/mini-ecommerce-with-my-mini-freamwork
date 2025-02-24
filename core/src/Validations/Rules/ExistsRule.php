@@ -1,6 +1,7 @@
 <?php namespace Main\Core\Validations\Rules;
 
-use App\Models\User;
+
+use Main\Core\Database\Model;
 use Rakit\Validation\Rule;
 
 class ExistsRule extends Rule
@@ -18,8 +19,8 @@ class ExistsRule extends Rule
         // getting parameters
         $column = $this->parameter('column');
         $table = $this->parameter('table');
-
-        $data = (new User())->find($value, 'email');
+        
+        $data = (new Model)->from($table)->find($value, $column);
         return !!$data;
 
     }

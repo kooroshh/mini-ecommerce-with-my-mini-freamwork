@@ -30,15 +30,6 @@ class Request
 
     public function all(): array
     {
-        // $data = [];
-
-        // if($this->isGet())
-        //     $data = filter_input_array(INPUT_GET, FILTER_SANITIZE_SPECIAL_CHARS);
-
-        // if($this->isPost())
-        //     $data = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
-
-        // return $data;
         return array_map(fn($item) => htmlspecialchars($item), $_REQUEST);
     }
 
@@ -47,14 +38,5 @@ class Request
 
         return $this->all()[$key] ?? null;
     }
-
-    public function query(string $key) : ?string
-    {
-
-        return filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS) ?? null;
-    }
-
-
-
 
 }
