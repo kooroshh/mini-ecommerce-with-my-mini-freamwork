@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "main/core" : "dev-main",
+        "main/core" : "dev-master",
         "rakit/validation": "^1.4",
         "jenssegers/blade": "v1.4.0"
     },

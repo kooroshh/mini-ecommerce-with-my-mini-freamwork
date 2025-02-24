@@ -4,7 +4,10 @@
     "autoload": {
         "psr-4": {
             "Main\\Core\\": "src/"
-        }
+        },
+        "files": [
+            "./src/helpers.php"
+        ]
     },
     "authors": [
         {

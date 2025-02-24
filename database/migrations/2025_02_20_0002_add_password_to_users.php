@@ -9,14 +9,14 @@ return new class{
     {
         $sql = "ALTER TABLE users
                 ADD password varchar(255) NOT NULL;";
-        Application::$app->db->pdo->exec($sql);
+        app()->db->pdo->exec($sql);
     }
 
     public function down()
     {
         $sql = "ALTER TABLE users
                 DROP COLUMN password;";
-        Application::$app->db->pdo->exec($sql);
+        app()->db->pdo->exec($sql);
     }
 
 };

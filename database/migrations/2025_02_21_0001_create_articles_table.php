@@ -14,13 +14,13 @@ return new class{
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         );";
-        Application::$app->db->pdo->exec($sql);
+        app()->db->pdo->exec($sql);
     }
 
     public function down()
     {
         $sql = "DROP TABLE IF EXISTS articles";
-        Application::$app->db->pdo->exec($sql);
+        app()->db->pdo->exec($sql);
     }
 
 };

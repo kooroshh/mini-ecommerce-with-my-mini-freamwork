@@ -10,6 +10,7 @@ class Application
     public static $MAIN_ROUTE;
 
     public Database $db;
+    public Request $request;
 
     public function __construct($mainRoute)
     {
@@ -17,6 +18,7 @@ class Application
         self::$MAIN_ROUTE = $mainRoute;
         self::$app = $this;
         $this->db = new Database();
+        $this->request = new Request;
     }
 
     public function run()

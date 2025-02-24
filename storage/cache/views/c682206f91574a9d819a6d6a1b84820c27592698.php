@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $__env->yieldContent('title', "Default"); ?></title>
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="http://localhost:8080/css/main.css">
 </head>
 <body>
 
-    <div class="container">
+    <div class="container px-4">
 
-    <?php echo $__env->yieldContent("content"); ?>
+        <?php echo $__env->yieldContent("content"); ?>
 
     </div>
 
