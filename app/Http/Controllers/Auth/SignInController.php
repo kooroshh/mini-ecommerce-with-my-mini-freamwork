@@ -1,26 +1,25 @@
 <?php namespace  App\Http\Controllers\Auth;
 
 use App\Models\User;
-use Main\Core\Auth;
 use Main\Core\Controller;
 use Rakit\Validation\ErrorBag;
 
 
-class LoginController extends Controller
+class SignInController extends Controller
 {
 
-    public function loginView()
+    public function singInView()
     {
         if(auth()->check())
             return redirect('/user');
-        return $this->render('auth.login');
+        return $this->render('auth.singIn');
     }
 
-    public function login()
+    public function singIn()
     {
 
         if(auth()->check())
-        return redirect('/user');
+            return redirect('/user');
 
         $validation = $this->validate(request()->all(),[
             "email" => "required|email|max:255|exist:users,email",
@@ -36,7 +35,7 @@ class LoginController extends Controller
         ]);
 
         if ($validation->fails()) {
-            return redirect("/auth/login");
+            return redirect("/auth/sign-in");
         }
 
         $data = $validation->getValidatedData();
@@ -47,7 +46,7 @@ class LoginController extends Controller
         {
             $errors = new ErrorBag();
             $errors->add('password','check-password',"The Information Does not match");
-            return redirect("/auth/login")
+            return redirect("/auth/sign-in")
                     ->withErrors($errors)
                     ->withInputs();
         }
@@ -61,11 +60,11 @@ class LoginController extends Controller
     public function logout()
     {
         if(!auth()->check())
-            return redirect("/auth/login");
+            return redirect("/auth/sign-in");
         
         auth()->logout();
 
-        return redirect("/auth/login");
+        return redirect("/auth/sign-in");
     }
 
 }

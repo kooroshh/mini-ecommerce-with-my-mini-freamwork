@@ -1,6 +1,6 @@
 
 
-<?php $__env->startSection("title","contact-us"); ?>
+<?php $__env->startSection("title","Contact Us"); ?>
 
 <?php $__env->startSection('content'); ?>
 

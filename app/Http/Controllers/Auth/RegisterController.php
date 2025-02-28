@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'password' => password_hash($userData['password'], PASSWORD_DEFAULT),
         ]);
 
-        return redirect("/auth/login");
+        return redirect("/auth/sign-in");
     }
 
 }

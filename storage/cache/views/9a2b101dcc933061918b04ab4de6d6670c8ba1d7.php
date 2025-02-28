@@ -2,6 +2,8 @@
 
 <?php $__env->startSection("title","About Us"); ?>
 
+
+
 <?php $__env->startSection('content'); ?>
 
     <div class="px-4">
@@ -12,7 +14,7 @@
 
         </header>
 
-        <div class="my-5">
+        <div class="py-5 border-t">
 
             <h2 class="text-gray-900 tracking-tight font-semibold text-5xl text-center md:text-start">Our Mission</h2>
             <div class="mt-6 flex flex-col md:flex-row">
@@ -43,7 +45,7 @@
             </div>
         </div>
 
-        <img class="my-10 rounded brightness-75 transition-all ease-in-out hover:brightness-100" src="./assets/images/game.webp" alt="Game">
+        <img class="my-10 rounded brightness-75 transition-all ease-in-out hover:brightness-100" src="/assets/images/game.webp" alt="Game">
 
         <div class="my-5">
 
@@ -55,7 +57,7 @@
 
                 <div>
 
-                    <img class="rounded-full size-24 mx-auto" src="./assets/images/user.webp" alt="User Image">
+                    <img class="rounded-full size-24 mx-auto" src="/assets/images/user.webp" alt="User Image">
                     <h3 class="tracking-tight text-gray-900 font-semibold text-base mt-6 text-center">Koorosh Soleymani Fard<h3>
                     <p class="text-gray-600 text-sm text-center">Front-End Developer</p>
 
@@ -63,7 +65,7 @@
 
                 <div>
 
-                    <img class="rounded-full size-24 mx-auto" src="./assets/images/user.webp" alt="User Image">
+                    <img class="rounded-full size-24 mx-auto" src="/assets/images/user.webp" alt="User Image">
                     <h3 class="tracking-tight text-gray-900 font-semibold text-base mt-6 text-center">Koorosh Soleymani Fard<h3>
                     <p class="text-gray-600 text-sm text-center">Designer</p>
 
@@ -71,7 +73,7 @@
 
                 <div>
 
-                    <img class="rounded-full size-24 mx-auto" src="./assets/images/user.webp" alt="User Image">
+                    <img class="rounded-full size-24 mx-auto" src="/assets/images/user.webp" alt="User Image">
                     <h3 class="tracking-tight text-gray-900 font-semibold text-base mt-6 text-center">Koorosh Soleymani Fard<h3>
                     <p class="text-gray-600 text-sm text-center">Back-End Developer</p>
 
@@ -79,7 +81,7 @@
 
                 <div>
 
-                    <img class="rounded-full size-24 mx-auto" src="./assets/images/user.webp" alt="User Image">
+                    <img class="rounded-full size-24 mx-auto" src="/assets/images/user.webp" alt="User Image">
                     <h3 class="tracking-tight text-gray-900 font-semibold text-base mt-6 text-center">Koorosh Soleymani Fard<h3>
                     <p class="text-gray-600 text-sm text-center">Business Relations</p>
 
@@ -87,7 +89,7 @@
 
                 <div>
 
-                    <img class="rounded-full size-24 mx-auto" src="./assets/images/user.webp" alt="User Image">
+                    <img class="rounded-full size-24 mx-auto" src="/assets/images/user.webp" alt="User Image">
                     <h3 class="tracking-tight text-gray-900 font-semibold text-base mt-6 text-center">Koorosh Soleymani Fard<h3>
                     <p class="text-gray-600 text-sm text-center">Director of Product</p>
 
@@ -95,7 +97,7 @@
 
                 <div>
 
-                    <img class="rounded-full size-24 mx-auto" src="./assets/images/user.webp" alt="User Image">
+                    <img class="rounded-full size-24 mx-auto" src="/assets/images/user.webp" alt="User Image">
                     <h3 class="tracking-tight text-gray-900 font-semibold text-base mt-6 text-center">Koorosh Soleymani Fard<h3>
                     <p class="text-gray-600 text-sm text-center">Copywriter</p>
 
@@ -103,7 +105,7 @@
 
                 <div>
 
-                    <img class="rounded-full size-24 mx-auto" src="./assets/images/user.webp" alt="User Image">
+                    <img class="rounded-full size-24 mx-auto" src="/assets/images/user.webp" alt="User Image">
                     <h3 class="tracking-tight text-gray-900 font-semibold text-base mt-6 text-center">Koorosh Soleymani Fard<h3>
                     <p class="text-gray-600 text-sm text-center">Senior Developer</p>
 
@@ -119,4 +121,5 @@
 
 
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make("layouts.complete", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Lenovo\Desktop\koori\session16 MVC\index2 Main\main\resources\views/about-us/about-us.blade.php ENDPATH**/ ?>

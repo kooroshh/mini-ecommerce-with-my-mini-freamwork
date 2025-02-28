@@ -9,7 +9,7 @@
 <body>
     <div class="w-full flex justify-between items-center px-8 h-16 border-b sticky top-0 z-10 bg-white">
 
-        <a href="/"><img class="w-auto h-12" src="./assets/images/logo.png" alt="Logo" width="176" height="136"></a>
+        <a href="/"><img class="w-auto h-12" src="/assets/images/logo.png" alt="Logo" width="176" height="136"></a>
         <div class="md:flex items-center hidden z-20 bg-white top-0 right-0 w-full justify-between p-3 md:p-0" id="nav">
 
             <button class="md:hidden border-b-2 w-full pb-2" id="nav-btn2">
@@ -36,12 +36,12 @@
             <div class="items-center hidden md:flex justify-end w-full md:w-auto text-center mt-3 md:mt-0" id="nav-items">
 
                 <?php if(auth()->check()): ?>
-                    <a href="#"><img class="size-8 rounded-full" src="./assets/images/user.webp" alt="User Image"></a>
+                    <a href="#"><img class="size-8 rounded-full" src="/assets/images/user.webp" alt="User Image"></a>
                 <?php else: ?>
                     <div>
                         <a class="text-indigo-600 hover:text-indigo-800" href="/auth/register">Register</a>
                         <span>/</span>
-                        <a class="text-indigo-600 hover:text-indigo-800" href="/auth/login">Login</a>
+                        <a class="text-indigo-600 hover:text-indigo-800" href="/auth/sign-in">Sign In</a>
                     </div>
                 <?php endif; ?>
 
@@ -62,6 +62,6 @@
     <?php echo $__env->yieldContent("content"); ?>
 
 
-    <script src="./js/script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html><?php /**PATH C:\Users\Lenovo\Desktop\koori\session16 MVC\index2 Main\main\resources\views/layouts/master.blade.php ENDPATH**/ ?>

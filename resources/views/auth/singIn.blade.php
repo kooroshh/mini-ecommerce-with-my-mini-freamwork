@@ -1,6 +1,6 @@
 @extends("layouts.blank")
 
-@section("Register Page")
+@section("Sign In Page")
 
 
 @section('content')
@@ -21,17 +21,7 @@
 
                 <div class="p-12 rounded-lg shadow bg-white">
 
-                    <form class="space-y-6" action="/auth/register" method="post" novalidate>
-
-                        <div>
-                            <label class="text-gray-900 font-medium text-sm block" for="email">Name</label>
-                            <div class="mt-2">
-                                <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="text" name="name" id="name" value="{{ $old('name') }}">
-                            </div>
-                            @if ($errors->has('name'))
-                                <p class="text-xs text-red-500 mt-1 pl-2.5">{{ $errors->first("name") }}</p>
-                            @endif
-                        </div>
+                    <form class="space-y-6" action="/auth/sign-in" method="post" novalidate>
 
                         <div>
                             <label class="text-gray-900 font-medium text-sm block" for="email">Email Address</label>
@@ -50,16 +40,6 @@
                             </div>
                             @if ($errors->has('password'))
                                 <p class="text-xs text-red-500 mt-1 pl-2.5">{{ $errors->first("password") }}</p>
-                            @endif
-                        </div>
-
-                        <div>
-                            <label class="text-gray-900 font-medium text-sm block" for="confirm_password">Confirm Password</label>
-                            <div class="mt-2">
-                                <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="password" name="confirm_password" id="confirm_password" value="{{ $old('password') }}">
-                            </div>
-                            @if ($errors->has('confirm_password'))
-                                <p class="text-xs text-red-500 mt-1 pl-2.5">{{ $errors->first("confirm_password") }}</p>
                             @endif
                         </div>
 
@@ -97,7 +77,7 @@
 
                 </div>
 
-                <p class="text-sm text-gray-500 text-center mt-10">Have An Account? <a class="text-indigo-600 font-semibold" href="/auth/sign-in">Sign In</a></p>
+                <p class="text-sm text-gray-500 text-center mt-10">Not A Member? <a class="text-indigo-600 font-semibold" href="/auth/register">Register</a></p>
 
             </div>
 

@@ -20,7 +20,7 @@ class ExistsRule extends Rule
         $column = $this->parameter('column');
         $table = $this->parameter('table');
         
-        $data = (new Model)->from($table)->find($value, $column);
+        $data = (new Model)->from($table)->where('is_ban', false)->find($value, $column);
         return !!$data;
 
     }

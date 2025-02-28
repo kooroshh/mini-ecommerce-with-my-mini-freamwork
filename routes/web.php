@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\AdminPanelController;
 use App\Http\Controllers\Auth\PanelController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\SignInController;
 use Main\Core\Router;
 
 Router::get("/articles/{slug}/edit/{id:\d+}", function(){
@@ -10,16 +11,19 @@ Router::get("/articles/{slug}/edit/{id:\d+}", function(){
 });
 
 
-Router::get("/auth/register", [RegisterController::class, "registerView"]);
-Router::post("/auth/register", [RegisterController::class, "register"]);
-
-Router::get("/auth/logout", [LoginController::class, "logout"]);
-
-Router::get("/auth/login", [LoginController::class, "loginView"]);
-Router::post("/auth/login", [LoginController::class, "login"]);
-
-Router::get('/user', [PanelController::class, "index"]);
 
 Router::view('/contact-us',"contact-us.contact-us");
 Router::view('/about-us',"about-us.about-us");
+
+
+Router::get("/auth/register", [RegisterController::class, "registerView"]);
+Router::post("/auth/register", [RegisterController::class, "register"]);
+
+Router::get("/auth/logout", [SignInController::class, "logout"]);
+
+
+Router::get("/auth/sign-in", [SignInController::class, "singInView"]);
+Router::post("/auth/sign-in", [SignInController::class, "singIn"]);
+
+Router::get('/admin-panel', [AdminPanelController::class, "panelView"]);
 

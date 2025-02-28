@@ -67,5 +67,42 @@ if(!function_exists("auth"))
     }
 }
 
+if(!function_exists("userImage"))
+{
+    function userImage() : string
+    {
+        $defaultImage = auth()->user()->image;
+        $image = "/assets/images/$defaultImage";
+        return $image;
+    }
+}
+
+if(!function_exists("isAdmin"))
+{
+    function isAdmin() : bool
+    {
+        $user = auth()->user()->is_admin ?? false;
+        return $user;
+    }
+}
+
+if(!function_exists("getUserIP"))
+{
+    function getUserIP() {
+        if (!empty($_SERVER['REMOTE_ADDR'])) {
+
+            return $_SERVER['REMOTE_ADDR'];
+
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+
+
+            return $_SERVER['HTTP_X_FORWARDED_FOR'];
+
+        } else {
+            return $_SERVER['HTTP_CLIENT_IP'];
+        }
+    }
+}
+
 
 

@@ -1,6 +1,6 @@
 <?php namespace Main\Core\Database;
 
-use Exception;
+
 use PDO;
 use PDOStatement;
 
@@ -73,6 +73,15 @@ class Model extends Database
         return $this->limit(1)->result()->fetch('fetch');
     }
 
+    public function count(string $name = null,$value = null, string $operator = "=")
+    {
+        if(!is_null($name)){
+            return $this->select("count(*) as count")->where($name, $value, $operator)->result()->fetch('fetch')->count;
+        }
+        
+        return $this->select("count(*) as count")->result()->fetch('fetch')->count;
+    }
+
 
 
 
@@ -119,7 +128,6 @@ class Model extends Database
 
         if($this->limit !== 0)
             $query[] = "LIMIT {$this->limit}";
-
 
 
         $this->setStatement(implode(' ', $query));

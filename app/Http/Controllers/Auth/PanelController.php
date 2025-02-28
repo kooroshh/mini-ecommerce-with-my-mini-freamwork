@@ -7,7 +7,7 @@ class PanelController extends Controller
       public function index()
       {
             if(!auth()->check())
-                  return redirect('/auth/login');
+                  return redirect('/auth/sign-in');
             return $this->render('user.index');
       }
 }

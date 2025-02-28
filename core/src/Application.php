@@ -1,5 +1,6 @@
 <?php namespace Main\Core;
 
+use App\Models\Views;
 use Exception;
 use Main\Core\Database\Database;
 
@@ -32,8 +33,13 @@ class Application
 
     public function run()
     {
+        
         try{
             echo $this->router->resolve();
+            (new Views)->create([
+                "client_ip" => getUserIP()
+            ]);
+            
         }catch(Exception $e)
         {
             if($e->getCode())

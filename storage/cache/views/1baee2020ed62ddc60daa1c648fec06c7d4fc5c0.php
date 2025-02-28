@@ -1,9 +1,9 @@
-@extends("layouts.blank")
-
-@section("Register Page")
 
 
-@section('content')
+<?php $__env->startSection("Register Page"); ?>
+
+
+<?php $__env->startSection('content'); ?>
 
 
     <div class="min-h-screen px-2 flex flex-col justify-center bg-gray-50">
@@ -26,41 +26,41 @@
                         <div>
                             <label class="text-gray-900 font-medium text-sm block" for="email">Name</label>
                             <div class="mt-2">
-                                <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="text" name="name" id="name" value="{{ $old('name') }}">
+                                <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="text" name="name" id="name" value="<?php echo e($old('name')); ?>">
                             </div>
-                            @if ($errors->has('name'))
-                                <p class="text-xs text-red-500 mt-1 pl-2.5">{{ $errors->first("name") }}</p>
-                            @endif
+                            <?php if($errors->has('name')): ?>
+                                <p class="text-xs text-red-500 mt-1 pl-2.5"><?php echo e($errors->first("name")); ?></p>
+                            <?php endif; ?>
                         </div>
 
                         <div>
                             <label class="text-gray-900 font-medium text-sm block" for="email">Email Address</label>
                             <div class="mt-2">
-                                <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="email" name="email" id="email" value="{{ $old('email') }}">
+                                <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="email" name="email" id="email" value="<?php echo e($old('email')); ?>">
                             </div>
-                            @if ($errors->has('email'))
-                                <p class="text-xs text-red-500 mt-1 pl-2.5">{{ $errors->first("email") }}</p>
-                            @endif
+                            <?php if($errors->has('email')): ?>
+                                <p class="text-xs text-red-500 mt-1 pl-2.5"><?php echo e($errors->first("email")); ?></p>
+                            <?php endif; ?>
                         </div>
 
                         <div>
                             <label class="text-gray-900 font-medium text-sm block" for="password">Password</label>
                             <div class="mt-2">
-                                <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="password" name="password" id="password" value="{{ $old('password') }}">
+                                <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="password" name="password" id="password" value="<?php echo e($old('password')); ?>">
                             </div>
-                            @if ($errors->has('password'))
-                                <p class="text-xs text-red-500 mt-1 pl-2.5">{{ $errors->first("password") }}</p>
-                            @endif
+                            <?php if($errors->has('password')): ?>
+                                <p class="text-xs text-red-500 mt-1 pl-2.5"><?php echo e($errors->first("password")); ?></p>
+                            <?php endif; ?>
                         </div>
 
                         <div>
                             <label class="text-gray-900 font-medium text-sm block" for="confirm_password">Confirm Password</label>
                             <div class="mt-2">
-                                <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="password" name="confirm_password" id="confirm_password" value="{{ $old('password') }}">
+                                <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="password" name="confirm_password" id="confirm_password" value="<?php echo e($old('password')); ?>">
                             </div>
-                            @if ($errors->has('confirm_password'))
-                                <p class="text-xs text-red-500 mt-1 pl-2.5">{{ $errors->first("confirm_password") }}</p>
-                            @endif
+                            <?php if($errors->has('confirm_password')): ?>
+                                <p class="text-xs text-red-500 mt-1 pl-2.5"><?php echo e($errors->first("confirm_password")); ?></p>
+                            <?php endif; ?>
                         </div>
 
                         <div class="pt-4">
@@ -105,4 +105,5 @@
 
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("layouts.blank", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Lenovo\Desktop\koori\session16 MVC\index2 Main\main\resources\views/auth/register.blade.php ENDPATH**/ ?>
