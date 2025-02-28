@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers\Auth;
+<?php namespace App\Http\Controllers\Auth\Panel\AdminPanel;
 
 use App\Models\Categories;
 use App\Models\Comments;
@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Models\Views;
 use Main\Core\Controller;
 
-class AdminPanelController extends Controller
+class AdminPanelDashboardController extends Controller
 {
     public function panelView()
     {
