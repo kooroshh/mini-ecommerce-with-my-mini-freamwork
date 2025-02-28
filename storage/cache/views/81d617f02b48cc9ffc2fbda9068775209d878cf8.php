@@ -48,7 +48,7 @@
 
                 <div class="p-10 bg-gray-50 rounded-2xl flex flex-col">
                     <h3>Telegram</h3>
-                    <a class="mt-3 text-sm leading-5 text-indigo-600 font-semibold" href="https://t.me/support" target="_blank">Join us for news updates</a>
+                    <a class="mt-3 text-sm leading-5 text-indigo-600 font-semibold" href="https://t.me/support" target="_blank">Join Us For News Updates</a>
                 </div>
 
                 <div class="p-10 bg-gray-50 rounded-2xl flex flex-col">
@@ -73,4 +73,4 @@
     </div>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make("layouts.master", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Lenovo\Desktop\koori\session16 MVC\index2 Main\main\resources\views/contact-us/contact-us.blade.php ENDPATH**/ ?>
+<?php echo $__env->make("layouts.complete", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Lenovo\Desktop\koori\session16 MVC\index2 Main\main\resources\views/contact-us/contact-us.blade.php ENDPATH**/ ?>

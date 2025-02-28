@@ -17,6 +17,14 @@ class Request
 
         return $url;
     }
+    
+    public function is(string $url) : bool
+    {
+        if($this->getUrl() == $url)
+            return true;
+
+        return false;
+    }
 
     public function isPost() : bool
     {

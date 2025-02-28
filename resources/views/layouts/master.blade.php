@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', "Default")</title>
+    <title>@yield('title', "Logo")</title>
     <link rel="stylesheet" href="http://localhost:8080/css/main.css">
 </head>
 <body>
@@ -22,11 +22,11 @@
                 
                 <ul class="gap-4 text-gray-700 text-sm font-medium h-full justify-center items-center flex md:ml-4 flex-col md:flex-row">
 
-                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center    md:w-auto" href="/">Home</a></li>
-                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center    md:w-auto" href="/products">Products</a></li>
-                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center    md:w-auto bg-indigo-600 text-white" href="/contact-us">Contact Us</a></li>
-                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center    md:w-auto" href="/about-us">About Us</a></li>
-                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center    md:w-auto" href="/shopping-cart">Shopping Cart</a></li>
+                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto {{ request()->is("/") ? "bg-indigo-600 text-white" : "" }}" href="/">Home</a></li>
+                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto {{ request()->is("/products") ? "bg-indigo-600 text-white" : "" }}" href="/products">Products</a></li>
+                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto {{ request()->is("/contact-us") ? "bg-indigo-600 text-white" : "" }}" href="/contact-us">Contact Us</a></li>
+                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto {{ request()->is("/about-us") ? "bg-indigo-600 text-white" : "" }}" href="/about-us">About Us</a></li>
+                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto {{ request()->is("/shopping-cart") ? "bg-indigo-600 text-white" : "" }}" href="/shopping-cart">Shopping Cart</a></li>
 
                 </ul>
 

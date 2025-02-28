@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', "Default")</title>
+    <title><?php echo $__env->yieldContent('title', "Default"); ?></title>
     <link rel="stylesheet" href="http://localhost:8080/css/main.css">
 </head>
 <body>
@@ -22,26 +22,26 @@
             <div class="border-b-2 md:border-none pb-5 md:pb-0">
                 <ul class="gap-4 text-gray-700 text-sm font-medium h-full justify-center items-center flex md:ml-4 flex-col md:flex-row">
 
-                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto {{ request()->is("/") ? "bg-indigo-600 text-white" : "" }}" href="/">Home</a></li>
-                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto {{ request()->is("/products") ? "bg-indigo-600 text-white" : "" }}" href="/products">Products</a></li>
-                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto {{ request()->is("/contact-us") ? "bg-indigo-600 text-white" : "" }}" href="/contact-us">Contact Us</a></li>
-                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto {{ request()->is("/about-us") ? "bg-indigo-600 text-white" : "" }}" href="/about-us">About Us</a></li>
-                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto {{ request()->is("/shopping-cart") ? "bg-indigo-600 text-white" : "" }}" href="/shopping-cart">Shopping Cart</a></li>
+                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto <?php echo e(request()->is("/") ? "bg-indigo-600 text-white" : ""); ?>" href="/">Home</a></li>
+                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto <?php echo e(request()->is("/products") ? "bg-indigo-600 text-white" : ""); ?>" href="/products">Products</a></li>
+                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto <?php echo e(request()->is("/contact-us") ? "bg-indigo-600 text-white" : ""); ?>" href="/contact-us">Contact Us</a></li>
+                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto <?php echo e(request()->is("/about-us") ? "bg-indigo-600 text-white" : ""); ?>" href="/about-us">About Us</a></li>
+                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto <?php echo e(request()->is("/shopping-cart") ? "bg-indigo-600 text-white" : ""); ?>" href="/shopping-cart">Shopping Cart</a></li>
 
                 </ul>
             </div>
 
             <div class="items-center hidden md:flex justify-end w-full md:w-auto text-center mt-3 md:mt-0" id="nav-items">
 
-                @if (auth()->check())
+                <?php if(auth()->check()): ?>
                     <a href="#"><img class="size-8 rounded-full" src="./assets/images/user.webp" alt="User Image"></a>
-                @else
+                <?php else: ?>
                     <div>
                         <a class="text-indigo-600 hover:text-indigo-800" href="/auth/register">Register</a>
                         <span>/</span>
                         <a class="text-indigo-600 hover:text-indigo-800" href="/auth/login">Login</a>
                     </div>
-                @endif
+                <?php endif; ?>
 
             </div>
 
@@ -55,7 +55,7 @@
 
     </div>
 
-    @yield("content")
+    <?php echo $__env->yieldContent("content"); ?>
 
 
     <div class="px-8 mb-6">
@@ -124,4 +124,4 @@
 
     <script src="./js/script.js"></script>
 </body>
-</html>
+</html><?php /**PATH C:\Users\Lenovo\Desktop\koori\session16 MVC\index2 Main\main\resources\views/layouts/complete.blade.php ENDPATH**/ ?>

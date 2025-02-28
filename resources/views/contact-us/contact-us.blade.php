@@ -1,6 +1,6 @@
-@extends("layouts.master")
+@extends("layouts.complete")
 
-@section("title","contact-us")
+@section("title","Contact Us")
 
 @section('content')
 
@@ -48,7 +48,7 @@
 
                 <div class="p-10 bg-gray-50 rounded-2xl flex flex-col">
                     <h3>Telegram</h3>
-                    <a class="mt-3 text-sm leading-5 text-indigo-600 font-semibold" href="https://t.me/support" target="_blank">Join us for news updates</a>
+                    <a class="mt-3 text-sm leading-5 text-indigo-600 font-semibold" href="https://t.me/support" target="_blank">Join Us For News Updates</a>
                 </div>
 
                 <div class="p-10 bg-gray-50 rounded-2xl flex flex-col">

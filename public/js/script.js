@@ -3,23 +3,19 @@ document.addEventListener("DOMContentLoaded", ()=>{
     let navBtn = document.getElementById("nav-btn");
     let navBtn2 = document.getElementById("nav-btn2");
     let nav = document.getElementById("nav");
-    let body = document.querySelector("body");
-    let navLinks = document.getElementById("nav-links");
     let navItems = document.getElementById("nav-items");
 
     function openNav()
     {
         nav.classList.remove("hidden");
-        nav.classList.add("absolute", "h-screen");
-        body.classList.add("overflow-hidden");
+        nav.classList.add("fixed", "h-screen");
         navItems.classList.remove("hidden");
     }
 
     function closeNav()
     {
         nav.classList.add("hidden");
-        nav.classList.remove("absolute", "h-screen");
-        body.classList.remove("overflow-hidden");
+        nav.classList.remove("fixed", "h-screen");
         navItems.classList.add("hidden");
     }
 

@@ -21,4 +21,5 @@ Router::post("/auth/login", [LoginController::class, "login"]);
 Router::get('/user', [PanelController::class, "index"]);
 
 Router::view('/contact-us',"contact-us.contact-us");
+Router::view('/about-us',"about-us.about-us");
 
