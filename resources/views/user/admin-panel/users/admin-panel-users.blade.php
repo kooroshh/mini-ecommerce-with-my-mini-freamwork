@@ -1,12 +1,12 @@
+@extends("layouts.admin-panel.master")
 
 
+@section("title", "Admin Panel")
 
-<?php $__env->startSection("title", "Admin Panel"); ?>
-
-<?php $__env->startSection("page", "Users"); ?>
+@section("page", "Users")
 
 
-<?php $__env->startSection("content"); ?>
+@section("content")
 
 
     <div class="lg:p-6 p-3">
@@ -20,7 +20,7 @@
                     </svg>
                     Clients
                 </p>
-                <a href="/admin-panels/users/add" class="text-white font-semibold text-sm text-center bg-indigo-600 py-2 px-3 rounded">Add User</a>
+                <a href="/admin-panel/users/add" class="text-white font-semibold text-sm text-center bg-indigo-600 py-2 px-3 rounded">Add User</a>
 
                 <a href="/admin-panel/users" class="flex items-center py-3 px-4 content-center">
                     <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -51,49 +51,52 @@
                             </thead>
                             <tbody class="divide-y">
 
-                                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                @foreach ($users as $user)
                                     <tr>
 
-                                        <td class="sm:pl-0 text-gray-900 whitespace-nowrap font-medium text-sm pl-4 pr-3 py-4"><img class="size-6 rounded-full" src="/assets/images/<?php echo e($user->image); ?>" alt="User Image"></td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($user->name); ?></td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($user->email); ?></td>
+                                        <td class="sm:pl-0 text-gray-900 whitespace-nowrap font-medium text-sm pl-4 pr-3 py-4"><img class="size-6 rounded-full" src="/assets/images/{{ $user->image }}" alt="User Image"></td>
+                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">{{ $user->name }}</td>
+                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">{{ $user->email }}</td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">
-                                            <?php if($user->is_admin): ?>
+                                            @if ($user->is_admin)
                                                 <svg class="size-6 stroke-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                                                 </svg>                                       
-                                            <?php else: ?>
+                                            @else
                                                 <svg class="size-6 stroke-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                                                 </svg>
-                                            <?php endif; ?>
+                                            @endif
 
                                         </td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">
-                                            <?php if($user->is_ban): ?>
+                                            @if ($user->is_ban)
                                                 <svg class="size-6 stroke-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                                                 </svg>                                       
-                                            <?php else: ?>
+                                            @else
                                                 <svg class="size-6 stroke-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                                                 </svg>
-                                            <?php endif; ?>
+                                            @endif
                                         </td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($user->created_at); ?></td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($user->updated_at); ?></td>
+                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">{{ $user->created_at }}</td>
+                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">{{ $user->updated_at }}</td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">
-                                            <a href="/admin-panel/users/edit?<?php echo e("id={$user->id}"); ?>" class="text-indigo-600">edit</a>
+                                            <a href="/admin-panel/users/edit?{{ "id={$user->id}" }}" class="text-indigo-600">edit</a>
                                         </td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">
-                                            <a href="/admin-panel/users/delete?<?php echo e("id={$user->id}"); ?>" class="text-red-600">delete</a>
+                                            <a href="/admin-panel/users/delete?{{ "id={$user->id}" }}" class="text-red-500">delete</a>
+                                        </td>
+                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">
+                                            <a href="/admin-panel/users/un-ban?{{ "id={$user->id}" }}" class="text-red-700">Un Ban</a>
                                         </td>
                                         <td class="sm:pr-0 whitespace-nowrap font-medium text-sm text-right pl-3 pr-4 py-4 relative">
-                                            <a href="/admin-panel/users/ban?<?php echo e("id={$user->id}"); ?>" class="text-red-800">ban</a>
+                                            <a href="/admin-panel/users/ban?{{ "id={$user->id}" }}" class="text-red-900">ban</a>
                                         </td>
 
                                     </tr>                                
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                @endforeach
 
 
                             </tbody>
@@ -109,5 +112,4 @@
     </div>
 
 
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make("layouts.admin-panel.master", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Lenovo\Desktop\koori\session16 MVC\index2 Main\main\resources\views/user/admin-panel/admin-panel-users.blade.php ENDPATH**/ ?>
+@endsection

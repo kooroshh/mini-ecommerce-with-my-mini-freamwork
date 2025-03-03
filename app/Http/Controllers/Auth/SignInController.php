@@ -19,7 +19,7 @@ class SignInController extends Controller
     {
 
         if(auth()->check())
-            return redirect('/user');
+            return redirect('/admin-panel');
 
         $validation = $this->validate(request()->all(),[
             "email" => "required|email|max:255|exist:users,email",

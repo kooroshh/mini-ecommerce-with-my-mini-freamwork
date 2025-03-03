@@ -39,6 +39,7 @@ class Application
             (new Views)->create([
                 "client_ip" => getUserIP()
             ]);
+            logOutBanUsers();
             
         }catch(Exception $e)
         {

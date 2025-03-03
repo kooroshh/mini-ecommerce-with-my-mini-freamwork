@@ -18,10 +18,12 @@ class Request
         return $url;
     }
     
-    public function is(string $url) : bool
+    public function is(string ...$url) : bool
     {
-        if($this->getUrl() == $url)
-            return true;
+        foreach($url as $key => $value){
+            if($this->getUrl() == $value)
+                return true;
+        }
 
         return false;
     }
@@ -45,6 +47,11 @@ class Request
     {
 
         return $this->all()[$key] ?? null;
+    }
+
+    public function query(string $key) : ?string
+    {
+        return $_POST[$key] ?? null;
     }
 
 }

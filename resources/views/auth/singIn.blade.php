@@ -22,7 +22,7 @@
                 <div class="p-12 rounded-lg shadow bg-white">
 
                     <form class="space-y-6" action="/auth/sign-in" method="post" novalidate>
-
+                        <input type="hidden" name="_token" value="{{ session()->get('_token') }}">
                         <div>
                             <label class="text-gray-900 font-medium text-sm block" for="email">Email Address</label>
                             <div class="mt-2">

@@ -2,8 +2,10 @@
 
 // Global Functions
 
+use App\Models\User;
 use Main\Core\Application;
 use Main\Core\Auth;
+use Main\Core\Exceptions\NotFoundException;
 use Main\Core\Request;
 use Main\Core\Response;
 use Main\Core\Session;
@@ -101,6 +103,56 @@ if(!function_exists("getUserIP"))
         } else {
             return $_SERVER['HTTP_CLIENT_IP'];
         }
+    }
+}
+
+if(!function_exists("banUserToggler"))
+{
+    function banUserToggler($userId, string $method = "ban") 
+    {
+
+        switch($method)
+        {
+            case "ban"  :
+            {
+                (new User())->update($userId,[
+                    "is_ban" => true
+                ]);
+                return;
+            }
+        
+            case "unBan" : 
+            {
+                (new User())->update($userId,[
+                    "is_ban" => false
+                ]);
+
+                return;
+            }
+
+        };
+
+    }
+}
+
+if(!function_exists("logOutBanUsers"))
+{
+    function logOutBanUsers() 
+    {
+
+        $banUsers = (new User())->select('id')->where('is_ban', true)->get();
+        foreach($banUsers as $key => $value)
+        {
+            if(auth()->check())
+            {
+                $userId = auth()->user()->id;
+                if($userId == $value->id)
+                {
+                    auth()->logout();
+                }
+            }
+        }
+
     }
 }
 

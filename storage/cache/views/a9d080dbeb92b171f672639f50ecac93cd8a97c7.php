@@ -20,7 +20,7 @@
                     </svg>
                     Clients
                 </p>
-                <a href="/admin-panels/users/add" class="text-white font-semibold text-sm text-center bg-indigo-600 py-2 px-3 rounded">Add User</a>
+                <a href="/admin-panel/users/add" class="text-white font-semibold text-sm text-center bg-indigo-600 py-2 px-3 rounded">Add User</a>
 
                 <a href="/admin-panel/users" class="flex items-center py-3 px-4 content-center">
                     <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -86,10 +86,13 @@
                                             <a href="/admin-panel/users/edit?<?php echo e("id={$user->id}"); ?>" class="text-indigo-600">edit</a>
                                         </td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">
-                                            <a href="/admin-panel/users/delete?<?php echo e("id={$user->id}"); ?>" class="text-red-600">delete</a>
+                                            <a href="/admin-panel/users/delete?<?php echo e("id={$user->id}"); ?>" class="text-red-500">delete</a>
+                                        </td>
+                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">
+                                            <a href="/admin-panel/users/un-ban?<?php echo e("id={$user->id}"); ?>" class="text-red-700">Un Ban</a>
                                         </td>
                                         <td class="sm:pr-0 whitespace-nowrap font-medium text-sm text-right pl-3 pr-4 py-4 relative">
-                                            <a href="/admin-panel/users/ban?<?php echo e("id={$user->id}"); ?>" class="text-red-800">ban</a>
+                                            <a href="/admin-panel/users/ban?<?php echo e("id={$user->id}"); ?>" class="text-red-900">ban</a>
                                         </td>
 
                                     </tr>                                
@@ -110,4 +113,4 @@
 
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make("layouts.admin-panel.master", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Lenovo\Desktop\koori\session16 MVC\index2 Main\main\resources\views/user/admin-panel/admin-panel-users.blade.php ENDPATH**/ ?>
+<?php echo $__env->make("layouts.admin-panel.master", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Lenovo\Desktop\koori\session16 MVC\index2 Main\main\resources\views/user/admin-panel/users/admin-panel-users.blade.php ENDPATH**/ ?>

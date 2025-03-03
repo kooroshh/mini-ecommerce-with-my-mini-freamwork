@@ -40,7 +40,7 @@
 
                             <div class="-mx-2 space-y-1">
 
-                                <a href="#"
+                                <a href="/admin-panel"
                                     class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 {{ request()->is("/admin-panel") ? "bg-indigo-700" : "hover:bg-indigo-700"}}">
 
                                     <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -55,7 +55,7 @@
                                 </a>
 
                                 <a href="/admin-panel/users"
-                                    class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 {{ request()->is("/admin-panel/users") ? "bg-indigo-700" : "hover:bg-indigo-700"}}">
+                                    class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 {{ request()->is("/admin-panel/users", "/admin-panel/users/delete", "/admin-panel/users/ban", "/admin-panel/users/un-ban", "/admin-panel/users/edit") ? "bg-indigo-700" : "hover:bg-indigo-700"}}">
 
                                     <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
@@ -128,15 +128,15 @@
                             </div>
                             <div>
 
-                                <span class="text-indigo-200 font-semibold text-xs">Your teams</span>
+                                <span class="text-indigo-200 font-semibold text-xs">Tools</span>
                                 <div class="-mx-2 mt-2   space-y-1">
 
-                                    <a href="#"
-                                        class="font-semibold hover:bg-indigo-700 text-sm rounded-md flex gap-3 items-center p-2 text-gray-200">
+                                    <a href="/admin-panel/users/add"
+                                        class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 {{ request()->is("/admin-panel/users/add") ? "bg-indigo-700" : "hover:bg-indigo-700"}}">
 
                                         <span
-                                            class="text-white font-medium text-[0.625rem] bg-indigo-500 border border-indigo-400 rounded-lg size-6 flex items-center justify-center">H</span>
-                                        Heroicons
+                                            class="text-white font-medium text-[0.625rem] bg-indigo-500 border border-indigo-400 rounded-lg size-6 flex items-center justify-center">A</span>
+                                        Add User
 
                                     </a>
 
@@ -275,6 +275,6 @@
     </div>
 
 
-    <script src="./js/script2.js"></script>
+    <script src="/js/script2.js"></script>
 </body>
 </html>

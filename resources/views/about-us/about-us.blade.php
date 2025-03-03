@@ -6,13 +6,16 @@
 
 @section('content')
 
-    <div class="px-4">
+    <div class="w-full px-4 bg-[radial-gradient(circle_at_center,#7775D6,#592E71,#030712_70%)] lg:bg-[radial-gradient(circle_at_center_150%,#7775D6,#592E71,#030712_70%)]">
         <header class="text-center  py-24 max-w-[800px] mx-auto">
 
-            <h1 class="md:text-7xl text-5xl text-gray-900 tracking-tight font-semibold">Level Up Your Gaming Experience With Us</h1>
-            <p class="mt-8 md:text-xl text-lg text-start md:text-center leading-8 text-gray-500 font-medium">Step into a world of limitless gaming! Whether you're looking for the latest AAA titles, hidden indie gems, or exclusive in-game content, we've got you covered. Enjoy unbeatable discounts, fast and secure purchases, and a seamless gaming experience all in one place. Power up your collection and game like never before!</p>
+            <h1 class="md:text-7xl text-5xl text-white tracking-tight font-semibold">Level Up Your Gaming Experience With Us</h1>
+            <p class="mt-8 md:text-xl text-lg text-start md:text-center leading-8 text-gray-300 font-medium">Step into a world of limitless gaming! Whether you're looking for the latest AAA titles, hidden indie gems, or exclusive in-game content, we've got you covered. Enjoy unbeatable discounts, fast and secure purchases, and a seamless gaming experience all in one place. Power up your collection and game like never before!</p>
 
         </header>
+    </div>
+    <div class="px-4">
+
 
         <div class="py-5 border-t">
 
@@ -50,10 +53,10 @@
         <div class="my-5">
 
             <div class="max-w-[42rem]">
-                <h2 class="tracking-tight text-gray-900 text-5xl font-semibold">Our Teams</h2>
+                <h2 class="tracking-tight text-gray-900 text-5xl font-semibold mb-3">Our Teams</h2>
                 <p class="text-gray-600 text-lg leading-8">We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the best results for our clients.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-5 sm:grid-cols-3 gap-8  mt-20">
+            <div class="grid grid-cols-1 md:grid-cols-5 sm:grid-cols-3 gap-8  mt-20 p-10 border border-gray-200 outline outline-offset-4 outline-gray-300 bg-white rounded-3xl">
 
                 <div>
 
