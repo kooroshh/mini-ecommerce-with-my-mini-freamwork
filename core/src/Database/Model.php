@@ -12,6 +12,7 @@ class Model extends Database
     protected array $selectedItems = [];
     protected int $limit = 0;
     protected array $whereList = [];
+    protected array $joinList = [];
     protected array $valuesForBind = [];
     protected Database $db;
 
@@ -48,12 +49,12 @@ class Model extends Database
 
     }
 
-    public function delete(int $id)
+    public function delete(mixed $value, string $field = 'id')
     {
 
 
-        $this->setStatement("DELETE FROM {$this->table} WHERE id = :id");
-        $this->bindValues(["id" => $id]);
+        $this->setStatement("DELETE FROM {$this->table} WHERE $field = :$field");
+        $this->bindValues(["$field" => $value]);
 
         return $this->statement->execute();
     }
@@ -88,10 +89,26 @@ class Model extends Database
     public function where(string $name, $value, string $operator = "=") : self
     {
 
-        $this->whereList[] = "$name $operator :$name";
+ 
+        if(strpos($name, '.') !== false)
+        {
+            $valueName = str_replace('.', '_', $name);
+            $this->whereList[] = "$name $operator :$valueName";
+            $this->valuesForBind[$valueName] = $value;
+        }else{
+            $this->whereList[] = "$name $operator :$name";
+            $this->valuesForBind[$name] = $value;
+        }
 
-        $this->valuesForBind[$name] = $value;
+        return $this;
+    }
 
+    public function join(string $table, string $field, ?string $origin = null, string $operator = "=") : self
+    {
+        if(is_null($origin))
+            $origin = "{$this->table}.id";
+
+        $this->joinList[] = "JOIN $table ON $origin $operator {$table}.{$field}"; 
         return $this;
     }
     public function from(string $table) : self
@@ -122,9 +139,16 @@ class Model extends Database
 
         $query[] = "FROM {$this->table}";
 
+        if(count($this->joinList)){
+            $query[] = $this->prepareJoinStatement();
+        }
+
         if(count($this->whereList)){
             $query[] = $this->prepareWhereStatement();
         }
+
+
+        
 
         if($this->limit !== 0)
             $query[] = "LIMIT {$this->limit}";
@@ -160,6 +184,17 @@ class Model extends Database
             if($key !== array_key_first($this->whereList))
                 $query[] = "AND ";
 
+            $query[] = $value;
+        }
+        return implode(' ',$query);
+    }
+
+    public function prepareJoinStatement() : string
+    {
+
+
+        foreach($this->joinList as $key => $value)
+        {
             $query[] = $value;
         }
         return implode(' ',$query);

@@ -33,4 +33,36 @@ document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("menuToggler2").addEventListener("click",menuRemove);
     
 
+
+    function checkAndChangeColor(event) {
+        let input = event.target;
+        let parent = input.parentElement;
+
+        if (input.checked) {
+            parent.classList.remove("border");
+            parent.classList.add("bg-gray-200");
+            
+        } else {
+            parent.classList.add("border");
+            parent.classList.remove("bg-gray-200");
+        }
+    }
+
+    document.querySelectorAll(".checker").forEach(input => {
+        input.addEventListener("click", checkAndChangeColor);
+    });
+
+    document.getElementById("image").addEventListener("change", function(event) {
+        const file = event.target.files[0];
+        if (file) 
+        {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.getElementById('productImage');
+                img.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+
 });

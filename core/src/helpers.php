@@ -12,9 +12,13 @@ use Main\Core\Session;
 
 if(!function_exists("dd"))
 {
-    function dd(mixed $value) : void
+    function dd(mixed ...$values) : void
     {
-        var_dump($value);die;
+        foreach($values as $value)
+        {
+            var_dump($value);
+        }
+        die;
     }
 }
 
@@ -69,12 +73,23 @@ if(!function_exists("auth"))
     }
 }
 
-if(!function_exists("userImage"))
+if(!function_exists("image"))
 {
-    function userImage() : string
+    function image(string $imageName, string $path = "") : string
     {
-        $defaultImage = auth()->user()->image;
-        $image = "/assets/images/$defaultImage";
+        $image = "/assets/images/" . ($path != "" ? "$path/" : "") . "$imageName";
+        return $image;
+    }
+}
+
+if(!function_exists("saveImage"))
+{
+    function saveImage(array $image, string $path = "") : string
+    {
+        $imageName = $image['name'];
+        $image = $image["tmp_name"];
+        $result = app()::$MAIN_ROUTE . "/public/assets/images/" . ($path != "" ? "$path/" : "") . "$imageName";
+        move_uploaded_file($image, $result);
         return $image;
     }
 }

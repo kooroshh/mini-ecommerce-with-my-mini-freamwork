@@ -20,18 +20,7 @@
                 <div class="bg-indigo-600 h-full w-9/12 lg:w-full py-4 px-6 flex flex-col gap-5">
 
                     <div>
-
-                        <svg class="h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47 40" fill="none">
-                            <path fill="#fff"
-                                d="M23.5 6.5C17.5 6.5 13.75 9.5 12.25 15.5C14.5 12.5 17.125 11.375 20.125 12.125C21.8367 12.5529 23.0601 13.7947 24.4142 15.1692C26.6202 17.4084 29.1734 20 34.75 20C40.75 20 44.5 17 46 11C43.75 14 41.125 15.125 38.125 14.375C36.4133 13.9471 35.1899 12.7053 33.8357 11.3308C31.6297 9.09158 29.0766 6.5 23.5 6.5ZM12.25 20C6.25 20 2.5 23 1 29C3.25 26 5.875 24.875 8.875 25.625C10.5867 26.0529 11.8101 27.2947 13.1642 28.6693C15.3702 30.9084 17.9234 33.5 23.5 33.5C29.5 33.5 33.25 30.5 34.75 24.5C32.5 27.5 29.875 28.625 26.875 27.875C25.1633 27.4471 23.9399 26.2053 22.5858 24.8307C20.3798 22.5916 17.8266 20 12.25 20Z" />
-                            <defs>
-                                <linearGradient id="%%GRADIENT_ID%%" x1="33.999" x2="1" y1="16.181" y2="16.181"
-                                    gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="%%GRADIENT_TO%%" />
-                                    <stop offset="1" stop-color="%%GRADIENT_FROM%%" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
+                        <a href="/"><img src="<?php echo e(image('logo.png')); ?>" alt="Logo" class="invert brightness-0 h-12 cursor-pointer"></a>
 
                     </div>
                     <div class="flex flex-col justify-between grow">
@@ -68,31 +57,24 @@
 
                                 </a>
 
-                                <a href="#"
-                                    class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 <?php echo e(request()->is("/admin-panel/projects") ? "bg-indigo-700" : "hover:bg-indigo-700"); ?>">
+                                <a href="/admin-panel/products"
+                                    class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 <?php echo e(request()->is("/admin-panel/products", "/admin-panel/products/delete") ? "bg-indigo-700" : "hover:bg-indigo-700"); ?>">
 
-                                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                                        data-slot="icon">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z">
-                                        </path>
+                                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z" />
                                     </svg>
-                                    Projects
+                                    Products
 
                                 </a>
 
-                                <a href="#"
-                                    class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 <?php echo e(request()->is("/admin-panel/calendar") ? "bg-indigo-700" : "hover:bg-indigo-700"); ?>">
+                                <a href="/admin-panel/categories"
+                                    class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 <?php echo e(request()->is("/admin-panel/categories", "/admin-panel/categories/delete", "/admin-panel/categories/edit") ? "bg-indigo-700" : "hover:bg-indigo-700"); ?>">
 
-                                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                                        data-slot="icon">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5">
-                                        </path>
+                                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
                                     </svg>
-                                    Calendar
+                                    Categories
 
                                 </a>
 
@@ -135,26 +117,26 @@
                                         class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 <?php echo e(request()->is("/admin-panel/users/add") ? "bg-indigo-700" : "hover:bg-indigo-700"); ?>">
 
                                         <span
-                                            class="text-white font-medium text-[0.625rem] bg-indigo-500 border border-indigo-400 rounded-lg size-6 flex items-center justify-center">A</span>
+                                            class="text-white font-medium text-[0.625rem] bg-indigo-500 border border-indigo-400 rounded-lg size-6 flex items-center justify-center">U</span>
                                         Add User
 
                                     </a>
 
-                                    <a href="#"
-                                        class="font-semibold hover:bg-indigo-700 text-sm rounded-md flex gap-3 items-center p-2 text-gray-200">
+                                    <a href="/admin-panel/categories/add"
+                                        class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 <?php echo e(request()->is("/admin-panel/categories/add") ? "bg-indigo-700" : "hover:bg-indigo-700"); ?>">
 
                                         <span
-                                            class="text-white font-medium text-[0.625rem] bg-indigo-500 border border-indigo-400 rounded-lg size-6 flex items-center justify-center">T</span>
-                                        Tailwind Labs
+                                            class="text-white font-medium text-[0.625rem] bg-indigo-500 border border-indigo-400 rounded-lg size-6 flex items-center justify-center">C</span>
+                                        Add Category
 
                                     </a>
 
-                                    <a href="#"
-                                        class="font-semibold hover:bg-indigo-700 text-sm rounded-md flex gap-3 items-center p-2 text-gray-200">
+                                    <a href="/admin-panel/products/add"
+                                        class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 <?php echo e(request()->is("/admin-panel/products/add") ? "bg-indigo-700" : "hover:bg-indigo-700"); ?>">
 
                                         <span
-                                            class="text-white font-medium text-[0.625rem] bg-indigo-500 border border-indigo-400 rounded-lg size-6 flex items-center justify-center">W</span>
-                                        Workcation
+                                            class="text-white font-medium text-[0.625rem] bg-indigo-500 border border-indigo-400 rounded-lg size-6 flex items-center justify-center">P</span>
+                                        Add Product
 
                                     </a>
 
@@ -241,7 +223,7 @@
                     </div>
                     <div class="flex items-center">
 
-                        <img class="bg-gray-100 rounded-full size-8 lg:mr-4" src="<?php echo e(userImage()); ?>"
+                        <img class="bg-gray-100 rounded-full size-8 lg:mr-4" src="<?php echo e(image(auth()->user()->image, "users")); ?>"
                             alt="User Image">
                         <span class="hidden lg:block color-gray-900  font-semibold text-sm text-nowrap"><?php echo e(auth()->user()->name); ?></span>
 

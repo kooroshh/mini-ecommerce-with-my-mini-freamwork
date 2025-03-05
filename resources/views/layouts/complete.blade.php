@@ -11,7 +11,7 @@
     
     <div class="w-full flex justify-between items-center px-8 h-16 border-b sticky top-0 z-10 bg-white">
 
-        <a href="/"><img class="w-auto h-12" src="/assets/images/logo.png" alt="Logo" width="176" height="136"></a>
+        <a href="/"><img class="w-auto h-12" src="{{ image('logo.png') }}" alt="Logo" width="176" height="136"></a>
         <div class="md:flex items-center hidden z-20 bg-white top-0 right-0 w-full justify-between p-3 md:p-0" id="nav">
 
             <button class="md:hidden border-b-2 w-full pb-2" id="nav-btn2">
@@ -35,7 +35,7 @@
             <div class="items-center hidden md:flex justify-end w-full md:w-auto text-center mt-3 md:mt-0" id="nav-items">
                 
                 @if (auth()->check())
-                    <a href="/admin-panel"><img class="size-8 rounded-full" src="{{ userImage() }}" alt="User Image"></a>
+                    <a href="/admin-panel"><img class="size-8 rounded-full" src="{{ image(auth()->user()->image, "users") }}" alt="User Image"></a>
                 @else
                     <div>
                         <a class="text-indigo-600 hover:text-indigo-800" href="/auth/register">Register</a>
@@ -65,7 +65,7 @@
         <div class="pt-28 mt-14 border-t flex flex-col xl:flex-row gap-8">
 
             <div class="xl:w-3/12">
-                <a class="flex justify-center sm:justify-start" href="/"><img class="w-auto h-12" src="/assets/images/logo.png" alt="Logo" width="176" height="136"></a>
+                <a class="flex justify-center sm:justify-start" href="/"><img class="w-auto h-12" src="{{ image('logo.png') }}" alt="Logo" width="176" height="136"></a>
             </div>
             <div class="xl:w-9/12 grid xl:grid-cols-4 grid-cols-1 sm:grid-cols-2 gap-8 text-center sm:text-start">
 

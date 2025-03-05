@@ -40,7 +40,20 @@ class Request
 
     public function all(): array
     {
-        return array_map(fn($item) => htmlspecialchars($item), $_REQUEST);
+        return array_map(function($item){
+            if(is_string($item))
+                return htmlspecialchars($item);
+            elseif(is_array($item))
+            {
+                $items = [];
+                foreach($item as $key => $value)
+                {
+                    $items[] = htmlspecialchars($value);
+                }
+                return $items;
+            }
+
+        }, $_REQUEST);
     }
 
     public function input(string $key) : ?string

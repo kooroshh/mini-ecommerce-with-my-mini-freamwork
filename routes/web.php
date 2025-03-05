@@ -1,12 +1,18 @@
 <?php
 
 
+use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelCategoriesController;
 use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelDashboardController;
+use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelProductsController;
 use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelUsersController;
+use App\Http\Controllers\Auth\Panel\AdminPanel\Tools\AdminPanelAddCategoryToolController;
+use App\Http\Controllers\Auth\Panel\AdminPanel\Tools\AdminPanelAddProductToolController;
 use App\Http\Controllers\Auth\Panel\AdminPanel\Tools\AdminPanelAddUserToolController;
 use App\Http\Controllers\Auth\PanelController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SignInController;
+use App\Models\Products;
+use Illuminate\Support\Facades\Route;
 use Main\Core\Router;
 
 Router::get("/articles/{slug}/edit/{id:\d+}", function(){
@@ -42,4 +48,18 @@ Router::get('/admin-panel/users/add', [AdminPanelAddUserToolController::class, "
 Router::post('/admin-panel/users/add', [AdminPanelAddUserToolController::class, "addUser"]);
 Router::get('/admin-panel/users/edit', [AdminPanelUsersController::class, "editUserView"]);
 Router::post('/admin-panel/users/edit', [AdminPanelUsersController::class, "editUser"]);
+
+Router::get('/admin-panel/products', [AdminPanelProductsController::class, "panelView"]);
+Router::get('/admin-panel/products/add', [AdminPanelAddProductToolController::class, "addProductView"]);
+Router::post('/admin-panel/products/add', [AdminPanelAddProductToolController::class, "addProduct"]);
+Router::get('/admin-panel/products/delete', [AdminPanelProductsController::class, "deleteProductView"]);
+Router::post('/admin-panel/products/delete', [AdminPanelProductsController::class, "deleteProduct"]);
+
+Router::get('/admin-panel/categories', [AdminPanelCategoriesController::class, "panelView"]);
+Router::get('/admin-panel/categories/add', [AdminPanelAddCategoryToolController::class, "addUserView"]);
+Router::post('/admin-panel/categories/add', [AdminPanelAddCategoryToolController::class, "addUser"]);
+Router::get('/admin-panel/categories/delete', [AdminPanelCategoriesController::class, "deleteCategoryView"]);
+Router::post('/admin-panel/categories/delete', [AdminPanelCategoriesController::class, "deleteCategory"]);
+Router::get('/admin-panel/categories/edit', [AdminPanelCategoriesController::class, "editCategoryView"]);
+Router::post('/admin-panel/categories/edit', [AdminPanelCategoriesController::class, "editCategory"]);
 

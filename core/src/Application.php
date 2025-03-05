@@ -43,7 +43,7 @@ class Application
             
         }catch(Exception $e)
         {
-            if($e->getCode())
+            if($e->getCode() != 0 && is_int($e->getCode()))
             {
                 echo $this->view->render("errors.{$e->getCode()}", [
                     "error" => $e

@@ -12,7 +12,7 @@
 
             <div class="max-w-[28rem] w-full mx-auto">
             
-                <a href="/"><img class="w-auto h-10 mx-auto" src="/assets/images/logo.png" alt="Logo" width="176" height="136"></a>
+                <a href="/"><img class="w-auto h-10 mx-auto" src="{{ image('logo.png') }}" alt="Logo" width="176" height="136"></a>
                 <h2 class="text-gray-900 tracking-tight font-bold text-2xl text-center mt-6">Sign in to your account</h2>
 
             </div>

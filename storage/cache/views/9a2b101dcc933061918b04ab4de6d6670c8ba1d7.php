@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <img class="my-10 rounded brightness-75 transition-all ease-in-out hover:brightness-100" src="/assets/images/game.webp" alt="Game">
+        <img class="my-10 rounded brightness-75 transition-all ease-in-out hover:brightness-100" src="<?php echo e(image('game.webp')); ?>" alt="Game">
 
         <div class="my-5">
 
@@ -60,7 +60,7 @@
 
                 <div>
 
-                    <img class="rounded-full size-24 mx-auto" src="/assets/images/user.webp" alt="User Image">
+                    <img class="rounded-full size-24 mx-auto" src="/assets/images/users/user.webp" alt="User Image">
                     <h3 class="tracking-tight text-gray-900 font-semibold text-base mt-6 text-center">Koorosh Soleymani Fard<h3>
                     <p class="text-gray-600 text-sm text-center">Front-End Developer</p>
 
@@ -68,7 +68,7 @@
 
                 <div>
 
-                    <img class="rounded-full size-24 mx-auto" src="/assets/images/user.webp" alt="User Image">
+                    <img class="rounded-full size-24 mx-auto" src="/assets/images/users/user.webp" alt="User Image">
                     <h3 class="tracking-tight text-gray-900 font-semibold text-base mt-6 text-center">Koorosh Soleymani Fard<h3>
                     <p class="text-gray-600 text-sm text-center">Designer</p>
 
@@ -76,7 +76,7 @@
 
                 <div>
 
-                    <img class="rounded-full size-24 mx-auto" src="/assets/images/user.webp" alt="User Image">
+                    <img class="rounded-full size-24 mx-auto" src="/assets/images/users/user.webp" alt="User Image">
                     <h3 class="tracking-tight text-gray-900 font-semibold text-base mt-6 text-center">Koorosh Soleymani Fard<h3>
                     <p class="text-gray-600 text-sm text-center">Back-End Developer</p>
 
@@ -84,7 +84,7 @@
 
                 <div>
 
-                    <img class="rounded-full size-24 mx-auto" src="/assets/images/user.webp" alt="User Image">
+                    <img class="rounded-full size-24 mx-auto" src="/assets/images/users/user.webp" alt="User Image">
                     <h3 class="tracking-tight text-gray-900 font-semibold text-base mt-6 text-center">Koorosh Soleymani Fard<h3>
                     <p class="text-gray-600 text-sm text-center">Business Relations</p>
 
@@ -92,7 +92,7 @@
 
                 <div>
 
-                    <img class="rounded-full size-24 mx-auto" src="/assets/images/user.webp" alt="User Image">
+                    <img class="rounded-full size-24 mx-auto" src="/assets/images/users/user.webp" alt="User Image">
                     <h3 class="tracking-tight text-gray-900 font-semibold text-base mt-6 text-center">Koorosh Soleymani Fard<h3>
                     <p class="text-gray-600 text-sm text-center">Director of Product</p>
 
@@ -100,7 +100,7 @@
 
                 <div>
 
-                    <img class="rounded-full size-24 mx-auto" src="/assets/images/user.webp" alt="User Image">
+                    <img class="rounded-full size-24 mx-auto" src="/assets/images/users/user.webp" alt="User Image">
                     <h3 class="tracking-tight text-gray-900 font-semibold text-base mt-6 text-center">Koorosh Soleymani Fard<h3>
                     <p class="text-gray-600 text-sm text-center">Copywriter</p>
 
@@ -108,7 +108,7 @@
 
                 <div>
 
-                    <img class="rounded-full size-24 mx-auto" src="/assets/images/user.webp" alt="User Image">
+                    <img class="rounded-full size-24 mx-auto" src="/assets/images/users/user.webp" alt="User Image">
                     <h3 class="tracking-tight text-gray-900 font-semibold text-base mt-6 text-center">Koorosh Soleymani Fard<h3>
                     <p class="text-gray-600 text-sm text-center">Senior Developer</p>
 

@@ -12,7 +12,7 @@
 
             <div class="max-w-[28rem] w-full mx-auto">
             
-                <a href="/"><img class="w-auto h-10 mx-auto" src="/assets/images/logo.png" alt="Logo" width="176" height="136"></a>
+                <a href="/"><img class="w-auto h-10 mx-auto" src="<?php echo e(image('logo.png')); ?>" alt="Logo" width="176" height="136"></a>
                 <h2 class="text-gray-900 tracking-tight font-bold text-2xl text-center mt-6">Sign in to your account</h2>
 
             </div>
@@ -22,7 +22,7 @@
                 <div class="p-12 rounded-lg shadow bg-white">
 
                     <form class="space-y-6" action="/auth/sign-in" method="post" novalidate>
-
+                        <input type="hidden" name="_token" value="<?php echo e(session()->get('_token')); ?>">
                         <div>
                             <label class="text-gray-900 font-medium text-sm block" for="email">Email Address</label>
                             <div class="mt-2">

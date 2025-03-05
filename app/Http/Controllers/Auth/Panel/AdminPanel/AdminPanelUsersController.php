@@ -167,7 +167,6 @@ class AdminPanelUsersController extends Controller
 
         $userData = $validation->getValidatedData();
 
-        unset($userData['confirm_password']);
         (new User())->update($userId, [
             ...$userData,
         ]);

@@ -20,7 +20,7 @@
                     </svg>
                     Clients
                 </p>
-                <a href="/admin-panel/users/add" class="text-white font-semibold text-sm text-center bg-indigo-600 py-2 px-3 rounded">Add User</a>
+                <a href="/admin-panel/users/add" class="text-white font-semibold text-sm text-center bg-indigo-600 py-2 px-3 rounded whitespace-nowrap">Add User</a>
 
                 <a href="/admin-panel/users" class="flex items-center py-3 px-4 content-center">
                     <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -54,7 +54,7 @@
                                 <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
 
-                                        <td class="sm:pl-0 text-gray-900 whitespace-nowrap font-medium text-sm pl-4 pr-3 py-4"><img class="size-6 rounded-full" src="/assets/images/<?php echo e($user->image); ?>" alt="User Image"></td>
+                                        <td class="sm:pl-0 text-gray-900 whitespace-nowrap font-medium text-sm pl-4 pr-3 py-4"><img class="size-6 rounded-full" src="<?php echo e(image($user->image, "users")); ?>" alt="User Image"></td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($user->name); ?></td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($user->email); ?></td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">

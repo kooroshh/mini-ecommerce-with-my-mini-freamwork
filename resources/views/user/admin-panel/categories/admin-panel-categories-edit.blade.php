@@ -4,14 +4,14 @@
 @section("title", "Admin Panel")
 
 @section("page")
-    <a href="/admin-panel/users" class="pr-3 text-2xl leading-8 text-gray-400 font-medium">Users /</a> Edit User
+    <a href="/admin-panel/categories" class="pr-3 text-2xl leading-8 text-gray-400 font-medium">Categories /</a> Edit Category
 @endsection
 
 
 @section('content')
 
     <div class="p-3">
-        <form class="space-y-6" action="/admin-panel/users/edit" method="post" novalidate>
+        <form class="space-y-6" action="/admin-panel/categories/edit" method="post" novalidate>
             <input type="hidden" name="_token" value="{{ session()->get('_token') }}">
             <input type="hidden" name="id" value="{{ $id }}">
             <div>
@@ -21,16 +21,6 @@
                 </div>
                 @if ($errors->has('name'))
                     <p class="text-xs text-red-500 mt-1 pl-2.5">{{ $errors->first("name") }}</p>
-                @endif
-            </div>
-
-            <div>
-                <label class="text-gray-900 font-medium text-sm block" for="email">Email Address</label>
-                <div class="mt-2">
-                    <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-gray-50 outline outline-1 -outline-offset-1 outline-gray-300" type="email" name="email" id="email" value="{{ $email }}" disabled>
-                </div>
-                @if ($errors->has('email'))
-                    <p class="text-xs text-red-500 mt-1 pl-2.5">{{ $errors->first("email") }}</p>
                 @endif
             </div>
 
