@@ -54,6 +54,8 @@ Router::get('/admin-panel/products/add', [AdminPanelAddProductToolController::cl
 Router::post('/admin-panel/products/add', [AdminPanelAddProductToolController::class, "addProduct"]);
 Router::get('/admin-panel/products/delete', [AdminPanelProductsController::class, "deleteProductView"]);
 Router::post('/admin-panel/products/delete', [AdminPanelProductsController::class, "deleteProduct"]);
+Router::get('/admin-panel/products/edit', [AdminPanelProductsController::class, "editProductView"]);
+Router::post('/admin-panel/products/edit', [AdminPanelProductsController::class, "editProduct"]);
 
 Router::get('/admin-panel/categories', [AdminPanelCategoriesController::class, "panelView"]);
 Router::get('/admin-panel/categories/add', [AdminPanelAddCategoryToolController::class, "addUserView"]);

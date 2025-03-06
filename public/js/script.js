@@ -19,16 +19,100 @@ document.addEventListener("DOMContentLoaded", ()=>{
         navItems.classList.add("hidden");
     }
 
-    navBtn.addEventListener("click", openNav);
-    navBtn2.addEventListener("click", closeNav);
-
-    window.addEventListener("resize", ()=>{
+    if(nav)
+    {
+        navBtn.addEventListener("click", openNav);
+        navBtn2.addEventListener("click", closeNav);
         
-        if(window.innerWidth >= 768)
-            closeNav();
-        
+        window.addEventListener("resize", ()=>{
+            
+            if(window.innerWidth >= 768)
+                closeNav();
+            
 
-    });
+        });
+    }
+
+
+    let menu = document.getElementById("menu");
+
+    function menuRemove(){
+
+        if(window.innerWidth < 1024){
+            menu.classList.remove("translate-x-0"); 
+            menu.classList.add("-translate-x-full");
+            document.getElementById("navbar").classList.add("flex");
+            document.getElementById("navbar").classList.remove("hidden");
+        }
+
+    }
+
+    function menuOpen(){
+        menu.classList.remove("-translate-x-full");
+        menu.classList.add("translate-x-0"); 
+        document.getElementById("navbar").classList.remove("flex");
+        document.getElementById("navbar").classList.add("hidden");
+
+    }
+
+    if(menu)
+    {
+        window.addEventListener("resize", ()=>{
+            if(window.innerWidth >= 1024){
+                document.getElementById("navbar").classList.add("flex");
+                document.getElementById("navbar").classList.remove("hidden");
+                menuRemove();
+            }else{
+                menuRemove();
+            }
+        });
+    
+        document.getElementById("menuToggler").addEventListener("click",menuOpen);
+        document.getElementById("menuToggler2").addEventListener("click",menuRemove);
+    }
+
+    
+
+
+    function checkAndChangeColor(event) {
+        let input = event.target;
+        let parent = input.parentElement;
+
+        if (input.checked) {
+            parent.classList.remove("border");
+            parent.classList.add("bg-gray-200");
+            
+        } else {
+            parent.classList.add("border");
+            parent.classList.remove("bg-gray-200");
+        }
+    }
+
+    let checker = document.querySelectorAll(".checker");
+    if(checker)
+    {
+        checker.forEach(input => {
+            input.addEventListener("click", checkAndChangeColor);
+        });
+    }
+
+    let image = document.getElementById("image");
+
+    if(image)
+    {
+        image.addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (file) 
+            {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.getElementById('productImage');
+                    img.src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });        
+    }
 
 
 

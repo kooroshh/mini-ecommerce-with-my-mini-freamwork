@@ -83,11 +83,11 @@ class Router
 
     public function resolve()
     {
-        if(request()->isPost()){
-            if(is_null(request()->query('_token')) || request()->query('_token') != session()->get('_token')){
-                return (new View())->render('errors.404');
-            }
-        }
+        // if(request()->isPost()){
+        //     if(is_null(request()->query('_token')) || request()->query('_token') != session()->get('_token')){
+        //         return (new View())->render('errors.404');
+        //     }
+        // }
         
         session()->set('_token', bin2hex(random_bytes(30)));
         

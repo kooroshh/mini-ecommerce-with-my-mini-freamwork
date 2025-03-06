@@ -35,7 +35,7 @@
             <div class="items-center hidden md:flex justify-end w-full md:w-auto text-center mt-3 md:mt-0" id="nav-items">
                 
                 <?php if(auth()->check()): ?>
-                    <a href="/admin-panel"><img class="size-8 rounded-full" src="<?php echo e(image(auth()->user()->image, "users")); ?>" alt="User Image"></a>
+                    <a href="/admin-panel" class="justify-self-center flex justify-center items-center"><img class="size-8 rounded-full" src="<?php echo e(image(auth()->user()->image, "users")); ?>" alt="User Image"><span class="ml-2"><?php echo e(auth()->user()->name); ?></span></a>
                 <?php else: ?>
                     <div>
                         <a class="text-indigo-600 hover:text-indigo-800" href="/auth/register">Register</a>

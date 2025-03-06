@@ -24,11 +24,12 @@ class AdminPanelAddCategoryToolController extends Controller
 
 
         $validation = $this->validate(request()->all(),[
-            "name" => "required|min:3|max:255",
+            "name" => "required|min:3|max:255|unique:categories,name",
         ],[
             "name:required" => "Name Cant Be Empty",
             "name:min" => "Name Cant Be Lower Than 3",
             "name:max" => "Name Cant Be Bigger Than 255",
+            "name:unique" => "Category Already Exist"
         ]);
 
         if ($validation->fails()) {

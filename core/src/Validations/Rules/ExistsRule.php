@@ -8,7 +8,7 @@ class ExistsRule extends Rule
 {
     protected $message = ":attribute :value has been used exists";
 
-    protected $fillableParams = ['table', 'column'];
+    protected $fillableParams = ['table', 'column', "field", "amount"];
 
 
     public function check($value): bool
@@ -19,9 +19,21 @@ class ExistsRule extends Rule
         // getting parameters
         $column = $this->parameter('column');
         $table = $this->parameter('table');
-        
-        $data = (new Model)->from($table)->where('is_ban', false)->find($value, $column);
-        return !!$data;
+        $field = $this->parameter('field');
+        $amount = $this->parameter('amount');
+        if(!is_null($field))
+        {
+            $data = (new Model)->from($table)->where($field, $amount)->find($value, $column);
+            return !!$data;
+        }else
+        {
+            $data = (new Model)->from($table)->find($value, $column);
+        }
+
+
+        return !$data;
+    
+
 
     }
 }

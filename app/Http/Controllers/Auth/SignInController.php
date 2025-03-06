@@ -17,12 +17,11 @@ class SignInController extends Controller
 
     public function singIn()
     {
-
         if(auth()->check())
             return redirect('/admin-panel');
 
         $validation = $this->validate(request()->all(),[
-            "email" => "required|email|max:255|exist:users,email",
+            "email" => "required|email|max:255|exist:users,email,is_ban,false",
             "password" => "required|min:5|max:255",
         ],[
             "email:email" => "Email Is Wrong",

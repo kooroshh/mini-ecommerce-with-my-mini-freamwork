@@ -15,7 +15,7 @@ class AdminPanelAddProductToolController extends Controller
         if(!isAdmin())
             return $this->render("errors.404");
 
-        $categories = (new Categories())->select("name")->get();    
+        $categories = (new Categories())->select("name")->get();
         return $this->render("user.admin-panel.tools.add-product-tool",[
             'categories' => $categories,
         ]);
@@ -29,7 +29,7 @@ class AdminPanelAddProductToolController extends Controller
 
         $validation = $this->validate(request()->all() + $_FILES,[
             "name" => "required|min:5|max:255",
-            "slug" => "required|max:255|min:5",
+            "slug" => "required|max:255|min:5|unique:products,slug",
             "description" => "required|min:5",
             "price" => "required|numeric",
             "count" => "required|numeric",
@@ -42,6 +42,7 @@ class AdminPanelAddProductToolController extends Controller
             "slug:required" => "Slug Cant Be Empty",
             "slug:max" => "Slug Cant Be Bigger Than 255",
             "slug:min" => "Slug Cant Be Lower Than 5",
+            "slug:unique" => "Slug Already Exist",
             "description:required" => "Description Cant Be Empty",
             "description:min" => "Description Cant Be Lower Than 5",
             "price:required" => "Price Cant Be Empty",
@@ -75,8 +76,8 @@ class AdminPanelAddProductToolController extends Controller
             unset($productsData['image']);
         }else
         {
-            saveImage($productsData['image'], 'products');
-            $productsData['image'] = $productsData['image']['name'];
+            saveImage($productsData['image'], "products/{$productsData['slug']}");
+            $productsData['image'] = $productsData['slug'] . "/" . $productsData['image']['name'];
         }
 
         $categoriesId = [];

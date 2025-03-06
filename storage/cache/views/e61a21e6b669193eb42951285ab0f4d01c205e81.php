@@ -15,7 +15,7 @@
             <input type="hidden" name="_token" value="<?php echo e(session()->get('_token')); ?>">
             <input type="hidden" name="id" value="<?php echo e($id); ?>">
             <div>
-                <label class="text-gray-900 font-medium text-sm block" for="email">Name</label>
+                <label class="text-gray-900 font-medium text-sm block" for="name">Name</label>
                 <div class="mt-2">
                     <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="text" name="name" id="name" value="<?php echo e($name); ?>">
                 </div>

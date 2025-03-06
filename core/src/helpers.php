@@ -88,7 +88,12 @@ if(!function_exists("saveImage"))
     {
         $imageName = $image['name'];
         $image = $image["tmp_name"];
-        $result = app()::$MAIN_ROUTE . "/public/assets/images/" . ($path != "" ? "$path/" : "") . "$imageName";
+        $path = app()::$MAIN_ROUTE . "/public/assets/images/" . ($path != "" ? "$path" : "");
+        $result = $path . "/$imageName";
+        if(!file_exists($path))
+        {
+            mkdir($path);
+        }
         move_uploaded_file($image, $result);
         return $image;
     }

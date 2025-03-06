@@ -34,6 +34,9 @@
                     </form>
                 </div>
             </div>
+            <?php if($errors->has('categoryId')): ?>
+                        <p class="text-xs text-red-500 mt-1 pl-2.5"><?php echo e($errors->first("categoryId")); ?></p>
+            <?php endif; ?>
 
         </div>
     </div>
