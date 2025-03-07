@@ -24,6 +24,9 @@ mini-php-framework/
 │── resources/
 │── routes/
 │── storage/
+│── composer.json
+│── package.json
+│── tailwind.config.js
 │── .gitignore
 │── README.md
 ```
