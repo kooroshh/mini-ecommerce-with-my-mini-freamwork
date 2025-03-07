@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers\Auth\Panel\AdminPanel\Tools;
+<?php namespace App\Http\Controllers\Panel\AdminPanel\Tools;
 
 use App\Models\Categories;
 use App\Models\Products;

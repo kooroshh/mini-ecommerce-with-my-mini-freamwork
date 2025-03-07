@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers\Auth\Panel\AdminPanel\Tools;
+<?php namespace App\Http\Controllers\Panel\AdminPanel\Tools;
 
 use App\Models\User;
 use Main\Core\Controller;

@@ -115,5 +115,26 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
 
 
+    let addCommentBtn = document.getElementById('addComment');
+    let addCommentElement = document.getElementById('add-comment');
+    let comments = document.getElementById("comments");
+    let commentsBtn = document.getElementById("commentsBtn");
+
+    function changeCommentMethod()
+    {
+        addCommentElement.classList.remove('hidden');
+        comments.classList.add('hidden');
+        commentsBtn.classList.remove("text-indigo-600","border-b-2", "border-indigo-600");
+        commentsBtn.classList.add("text-gray-700");
+        addCommentBtn.classList.remove("text-gray-700");
+        addCommentBtn.classList.add("text-indigo-600","border-b-2", "border-indigo-600");
+    }
+
+    if(addCommentBtn)
+    {
+        addCommentBtn.addEventListener('click', changeCommentMethod);
+    }
+
+
 
 });

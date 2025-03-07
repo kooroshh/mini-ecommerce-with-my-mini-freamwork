@@ -1,31 +1,31 @@
 <?php
 
 
-use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelCategoriesController;
-use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelCommentsController;
-use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelDashboardController;
-use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelOrdersController;
-use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelProductsController;
-use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelUsersController;
-use App\Http\Controllers\Auth\Panel\AdminPanel\Tools\AdminPanelAddCategoryToolController;
-use App\Http\Controllers\Auth\Panel\AdminPanel\Tools\AdminPanelAddProductToolController;
-use App\Http\Controllers\Auth\Panel\AdminPanel\Tools\AdminPanelAddUserToolController;
-use App\Http\Controllers\Auth\PanelController;
+use App\Http\Controllers\Panel\AdminPanel\AdminPanelCategoriesController;
+use App\Http\Controllers\Panel\AdminPanel\AdminPanelCommentsController;
+use App\Http\Controllers\Panel\AdminPanel\AdminPanelDashboardController;
+use App\Http\Controllers\Panel\AdminPanel\AdminPanelOrdersController;
+use App\Http\Controllers\Panel\AdminPanel\AdminPanelProductsController;
+use App\Http\Controllers\Panel\AdminPanel\AdminPanelUsersController;
+use App\Http\Controllers\Panel\AdminPanel\Tools\AdminPanelAddCategoryToolController;
+use App\Http\Controllers\Panel\AdminPanel\Tools\AdminPanelAddProductToolController;
+use App\Http\Controllers\Panel\AdminPanel\Tools\AdminPanelAddUserToolController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SignInController;
-use App\Models\Products;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Product\SingleProductController;
 use Main\Core\Router;
 
 Router::get("/articles/{slug}/edit/{id:\d+}", function(){
     return "Hello";
 });
 
-
+// Static Page
 
 Router::view('/contact-us',"contact-us.contact-us");
 Router::view('/about-us',"about-us.about-us");
 
+
+// Authentication
 
 Router::get("/auth/register", [RegisterController::class, "registerView"]);
 Router::post("/auth/register", [RegisterController::class, "register"]);
@@ -35,7 +35,7 @@ Router::get("/auth/logout", [SignInController::class, "logout"]);
 Router::get("/auth/sign-in", [SignInController::class, "singInView"]);
 Router::post("/auth/sign-in", [SignInController::class, "singIn"]);
 
-
+// Admin Panel
 
 Router::get('/admin-panel', [AdminPanelDashboardController::class, "panelView"]);
 
@@ -75,3 +75,11 @@ Router::post('/admin-panel/comments/delete', [AdminPanelCommentsController::clas
 Router::get('/admin-panel/comments', [AdminPanelCommentsController::class, "PanelView"]);
 
 Router::get('/admin-panel/orders', [AdminPanelOrdersController::class, "PanelView"]);
+
+
+// Products
+
+Router::get("/products/{slug}", [SingleProductController::class, "productShow"]);
+Router::post("/products/comment/add", [SingleProductController::class, "addComment"]);
+
+
