@@ -2,7 +2,9 @@
 
 
 use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelCategoriesController;
+use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelCommentsController;
 use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelDashboardController;
+use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelOrdersController;
 use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelProductsController;
 use App\Http\Controllers\Auth\Panel\AdminPanel\AdminPanelUsersController;
 use App\Http\Controllers\Auth\Panel\AdminPanel\Tools\AdminPanelAddCategoryToolController;
@@ -65,3 +67,11 @@ Router::post('/admin-panel/categories/delete', [AdminPanelCategoriesController::
 Router::get('/admin-panel/categories/edit', [AdminPanelCategoriesController::class, "editCategoryView"]);
 Router::post('/admin-panel/categories/edit', [AdminPanelCategoriesController::class, "editCategory"]);
 
+Router::get('/admin-panel/unregistered-comments', [AdminPanelCommentsController::class, "unregisteredPanelView"]);
+Router::get('/admin-panel/unregistered-comments/register', [AdminPanelCommentsController::class, "registerCommentView"]);
+Router::post('/admin-panel/unregistered-comments/register', [AdminPanelCommentsController::class, "registerComment"]);
+Router::get('/admin-panel/comments/delete', [AdminPanelCommentsController::class, "deleteCommentView"]);
+Router::post('/admin-panel/comments/delete', [AdminPanelCommentsController::class, "deleteComment"]);
+Router::get('/admin-panel/comments', [AdminPanelCommentsController::class, "PanelView"]);
+
+Router::get('/admin-panel/orders', [AdminPanelOrdersController::class, "PanelView"]);

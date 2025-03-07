@@ -4,7 +4,7 @@
 use Main\Core\Database\Model;
 use Rakit\Validation\Rule;
 
-class ExistsRule extends Rule
+class ExistsRuleFalse extends Rule
 {
     protected $message = ":attribute :value has been used exists";
 
@@ -22,7 +22,6 @@ class ExistsRule extends Rule
         $field = $this->parameter('field');
         $amount = $this->parameter('amount');
 
-
         if(!is_null($field))
         {
             $data = (new Model)->from($table)->where($field, $amount)->find($value, $column);
@@ -31,8 +30,8 @@ class ExistsRule extends Rule
             $data = (new Model)->from($table)->find($value, $column);
         }
 
-        return !!$data;
-
+        return !$data;
+    
 
 
     }

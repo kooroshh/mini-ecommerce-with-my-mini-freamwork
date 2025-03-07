@@ -8,9 +8,7 @@ return new class{
         $sql = "CREATE TABLE shopping_cart(
                 product_id INT NOT NULL,
                 user_id INT NOT NULL,
-                PRIMARY KEY(product_id, user_id),
-                FOREIGN KEY (product_id) REFERENCES products(id),
-                FOREIGN KEY (user_id) REFERENCES users(id)
+                PRIMARY KEY(product_id, user_id)
         );";
         app()->db->pdo->exec($sql);
     }

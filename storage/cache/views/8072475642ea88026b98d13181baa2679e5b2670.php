@@ -1,3 +1,6 @@
+<?php
+    $unregisteredCommentsCount = (new \App\Models\Comments)->count("is_active", false);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -78,32 +81,37 @@
 
                                 </a>
 
-                                <a href="#"
-                                    class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 <?php echo e(request()->is("/admin-panel/documents") ? "bg-indigo-700" : "hover:bg-indigo-700"); ?>">
+                                <a href="/admin-panel/unregistered-comments"
+                                    class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 <?php echo e(request()->is("/admin-panel/unregistered-comments", "/admin-panel/unregistered-comments/register") ? "bg-indigo-700" : "hover:bg-indigo-700"); ?>">
 
-                                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                                        data-slot="icon">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75">
-                                        </path>
+                                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
                                     </svg>
-                                    Documents
+
+                                    Unregistered Comments 
+                                    <?php if($unregisteredCommentsCount): ?>
+                                        <span class="inline-flex items-center rounded-md bg-red-400/50 px-2 py-1 text-xs font-medium text-white ring-1 ring-red-600/10 ring-inset"><?php echo e($unregisteredCommentsCount); ?></span>
+                                    <?php endif; ?>
 
                                 </a>
 
-                                <a href="#"
-                                    class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 <?php echo e(request()->is("/admin-panel/reports") ? "bg-indigo-700" : "hover:bg-indigo-700"); ?>">
+                                <a href="/admin-panel/comments"
+                                    class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 <?php echo e(request()->is("/admin-panel/comments", "/admin-panel/comments/delete") ? "bg-indigo-700" : "hover:bg-indigo-700"); ?>">
 
-                                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                                        data-slot="icon">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z"></path>
+                                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
                                     </svg>
-                                    Reports
+                                    Comments
+
+                                </a>
+
+                                <a href="/admin-panel/orders"
+                                    class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 <?php echo e(request()->is("/admin-panel/orders") ? "bg-indigo-700" : "hover:bg-indigo-700"); ?>">
+
+                                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                                    </svg>
+                                    Orders
 
                                 </a>
 
@@ -209,18 +217,6 @@
                 </form>
                 <div class="flex flex-row items-center gap-2">
 
-                    <div
-                        class="flex justify-center items-center lg:pr-5 lg:mr-4 lg:border-r-2 lg:border-gray-100 h-fit">
-
-                        <svg class="size-6 stroke-gray-400 fill-none" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
-                            data-slot="icon">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0">
-                            </path>
-                        </svg>
-
-                    </div>
                     <div class="flex items-center">
 
                         <img class="bg-gray-100 rounded-full size-8 lg:mr-4" src="<?php echo e(image(auth()->user()->image, "users")); ?>"

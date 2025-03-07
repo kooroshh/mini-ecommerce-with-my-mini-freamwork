@@ -8,7 +8,6 @@ class AdminPanelUsersController extends Controller
     public function panelView()
     {
 
-
         if(!isAdmin())
             return $this->render("errors.404");
 
@@ -28,6 +27,9 @@ class AdminPanelUsersController extends Controller
             return $this->render("errors.404");
 
         $userId = request()->input('id');
+        if(!$userId)
+            return redirect("/admin-panel/users");
+
         $user = (new User())->select("email")->find($userId);
         
         return $this->render("user.admin-panel.users.admin-panel-users-delete",[
@@ -45,9 +47,11 @@ class AdminPanelUsersController extends Controller
             return $this->render("errors.404");
 
 
-        $data = request()->all();
+        $userId = request()->input('userId');
+        if(!$userId)
+            return redirect("/admin-panel/users");
 
-        (new User())->delete($data['userId']);
+        (new User())->delete($userId);
         
         return redirect("/admin-panel/users");
     }
@@ -60,6 +64,9 @@ class AdminPanelUsersController extends Controller
             return $this->render("errors.404");
 
         $userId = request()->input('id');
+        if(!$userId)
+            return redirect("/admin-panel/users");
+        
         $user = (new User())->select("email")->find($userId);
         
         return $this->render("user.admin-panel.users.admin-panel-users-ban",[
@@ -78,9 +85,11 @@ class AdminPanelUsersController extends Controller
 
 
 
-        $data = request()->all();
+        $userId = request()->input('userId');
+        if(!$userId)
+            return redirect("/admin-panel/users");
 
-        banUserToggler($data['userId']);
+        banUserToggler($userId);
         
         return redirect("/admin-panel/users");
     }
@@ -93,6 +102,8 @@ class AdminPanelUsersController extends Controller
             return $this->render("errors.404");
 
         $userId = request()->input('id');
+        if(!$userId)
+            return redirect("/admin-panel/users");
         $user = (new User())->select("email")->find($userId);
         
         return $this->render("user.admin-panel.users.admin-panel-users-un-ban",[
@@ -111,9 +122,11 @@ class AdminPanelUsersController extends Controller
 
 
 
-        $data = request()->all();
+        $userId = request()->input('userId');
+        if(!$userId)
+            return redirect("/admin-panel/users");
 
-        banUserToggler($data['userId'], "unBan");
+        banUserToggler($userId, "unBan");
         
         return redirect("/admin-panel/users");
     }
@@ -126,6 +139,9 @@ class AdminPanelUsersController extends Controller
             return $this->render("errors.404");
 
         $userId = request()->input('id');
+
+        if(!$userId)
+            return redirect("/admin-panel/users");
 
         $data = (new User())->select("name", "email")->find($userId);
 
@@ -156,14 +172,12 @@ class AdminPanelUsersController extends Controller
 
         $userId = request()->input('id');
 
+        if(!$userId)
+            return redirect("/admin-panel/users");
+
         if ($validation->fails()) {
             return redirect("/admin-panel/users/edit?id=$userId");
         }
-
-        if (is_null($userId)) {
-            return redirect("/admin-panel/users");
-        }
-
 
         $userData = $validation->getValidatedData();
 

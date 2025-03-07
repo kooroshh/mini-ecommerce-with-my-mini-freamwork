@@ -29,6 +29,8 @@ class AdminPanelCategoriesController extends Controller
             return $this->render("errors.404");
 
         $categoryId = request()->input('id');
+        if(!$categoryId)
+            return redirect('/admin-panel/categories');
 
         $category = (new Categories())->find($categoryId);
         return $this->render("user.admin-panel.categories.admin-panel-categories-delete",[
@@ -45,21 +47,19 @@ class AdminPanelCategoriesController extends Controller
         if(!isAdmin())
             return $this->render("errors.404");
 
-
+        $categoryId = request()->input('categoryId');
+        
+        if (!$categoryId)
+            return redirect("/admin-panel/categories");
+            
 
 
         $validation = $this->validate(request()->all(),[
-            "categoryId" => "required|exist:products_categories,category_id",
+            "categoryId" => "existFalse:products_categories,category_id",
         ],[
-            "categoryId:required" => "Id Cant Be Empty",
-            "categoryId:exist" => "Cant Delete A Category When You Have A Product That It Is Using It",
+            "categoryId:existFalse" => "Cant Delete A Category When You Have A Product That It Is Using It",
         ]);
 
-
-        $categoryId = request()->all()['categoryId'];
-        if (!$categoryId) {
-            return redirect("/admin-panel/categories");
-        }
 
         if ($validation->fails()) {
             return redirect("/admin-panel/categories/delete?id=$categoryId");
@@ -80,6 +80,9 @@ class AdminPanelCategoriesController extends Controller
             return $this->render("errors.404");
 
         $categoryId = request()->input('id');
+
+        if(!$categoryId)
+            return redirect('/admin-panel/categories');
 
         $data = (new Categories())->select("name")->find($categoryId);
 
@@ -110,13 +113,13 @@ class AdminPanelCategoriesController extends Controller
 
         $categoryId = request()->input('id');
 
+        if(!$categoryId)
+            return redirect('/admin-panel/categories');
+
         if ($validation->fails()) {
             return redirect("/admin-panel/categories/edit?id=$categoryId");
         }
 
-        if (is_null($categoryId)) {
-            return redirect("/admin-panel/categories");
-        }
 
 
         $categoryData = $validation->getValidatedData();

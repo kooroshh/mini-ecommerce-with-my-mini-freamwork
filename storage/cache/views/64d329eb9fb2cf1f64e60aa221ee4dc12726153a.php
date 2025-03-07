@@ -4,7 +4,7 @@
 <?php $__env->startSection("title", "Admin Panel"); ?>
 
 <?php $__env->startSection("page"); ?>
-<a href="/admin-panel/categories" class="pr-3 text-2xl leading-8 text-gray-400 font-medium">Categories /</a> Delete
+<a href="/admin-panel/comments" class="pr-3 text-2xl leading-8 text-gray-400 font-medium">Comments /</a> Delete
 <?php $__env->stopSection(); ?>
 
 
@@ -20,23 +20,20 @@
                     </svg>
                 </div>
                 <div class="text-center lg:text-left">
-                    <h3 class="font-semibold">Delete Category?</h3>
-                    <p>Are you sure that you want to delete this category with name : <span class="italic font-medium text-red-400"><?php echo e($categoryName); ?></span> ?</p>
+                    <h3 class="font-semibold">Delete Comment?</h3>
+                    <p>Are you sure that you want to delete this comment ?</p>
                 </div>
             </div>
             <div class="bg-gray-50 flex justify-between lg:justify-end gap-3 py-3 px-6 rounded">
                 <div class="w-full lg:w-4/12 flex items-center gap-4">
-                    <a href="/admin-panel/categories" class="block bg-white py-2 px-3 rounded border-2 w-6/12 text-center">Cancel</a>
-                    <form action="/admin-panel/categories/delete" method="post" class="w-6/12">
+                    <a href="/admin-panel/comments" class="block bg-white py-2 px-3 rounded border-2 w-6/12 text-center">Cancel</a>
+                    <form action="/admin-panel/comments/delete" method="post" class="w-6/12">
                         <input type="hidden" name="_token" value="<?php echo e(session()->get('_token')); ?>">
-                        <input type="hidden" name="categoryId" value="<?php echo e($categoryId); ?>">
+                        <input type="hidden" name="commentId" value="<?php echo e($commentId); ?>">
                         <button class="text-white bg-red-600 py-2 px-3 rounded w-full text-center">Delete</button>
                     </form>
                 </div>
             </div>
-            <?php if($errors->has('categoryId')): ?>
-                <p class="text-xs text-red-500 mt-1 pl-2.5"><?php echo e($errors->first("categoryId")); ?></p>
-            <?php endif; ?>
 
         </div>
     </div>
@@ -46,4 +43,4 @@
 
 
 
-<?php echo $__env->make("layouts.admin-panel.master", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Lenovo\Desktop\koori\session16 MVC\index2 Main\main\resources\views/user/admin-panel/categories/admin-panel-categories-delete.blade.php ENDPATH**/ ?>
+<?php echo $__env->make("layouts.admin-panel.master", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Lenovo\Desktop\koori\session16 MVC\index2 Main\main\resources\views/user/admin-panel/comments/admin-panel-comments-delete.blade.php ENDPATH**/ ?>

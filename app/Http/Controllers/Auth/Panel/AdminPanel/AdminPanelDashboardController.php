@@ -21,6 +21,7 @@ class AdminPanelDashboardController extends Controller
         $ordersCount = (new Orders())->count();
         $productsCount = (new Products())->count();
         $categoriesCount = (new Categories())->count();
+        $unregisteredCommentsCount = (new Comments)->count("is_active", false);
 
         $todayViewsCount = (new Views)->get();
         $todayDate = date("Y-m-d");
@@ -41,6 +42,7 @@ class AdminPanelDashboardController extends Controller
             "productsCount" => $productsCount,
             "categoriesCount" => $categoriesCount,
             "ordersCount" => $ordersCount,
+            "unregisteredComments" => $unregisteredCommentsCount,
         ]);
     }
 }

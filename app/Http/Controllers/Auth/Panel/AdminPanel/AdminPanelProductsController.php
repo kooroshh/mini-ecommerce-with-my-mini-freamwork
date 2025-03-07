@@ -39,6 +39,10 @@ class AdminPanelProductsController extends Controller
             return $this->render("errors.404");
 
         $productId = request()->input('id');
+
+        if(!$productId)
+            return redirect('/admin-panel/products');
+
         $product = (new Products())->select("slug")->find($productId);
         
         return $this->render("user.admin-panel.products.admin-panel-products-delete",[
@@ -55,10 +59,12 @@ class AdminPanelProductsController extends Controller
             return $this->render("errors.404");
 
 
-        $data = request()->all();
+        $productId = request()->input("productId");
+        if(!$productId)
+            return redirect('/admin-panel/products');
 
 
-        $categories = (new ProductsCategories())->where('product_id', $data['productId'])->get();
+        $categories = (new ProductsCategories())->where('product_id', $productId)->get();
         
 
 
@@ -67,7 +73,7 @@ class AdminPanelProductsController extends Controller
             (new ProductsCategories())->delete($category->product_id,"product_id");
         }
 
-        (new Products())->delete($data['productId']);
+        (new Products())->delete($productId);
         
         return redirect("/admin-panel/products");
     }
@@ -80,6 +86,9 @@ class AdminPanelProductsController extends Controller
             return $this->render("errors.404");
 
         $productId = request()->input('id');
+
+        if(!$productId)
+            return redirect('/admin-panel/products');
 
         $product = (new Products())->select("id", 'name', "slug", "image", "description", "price", "count")->find($productId);
 
@@ -107,6 +116,9 @@ class AdminPanelProductsController extends Controller
 
             
         $productId = request()->input('id');
+
+        if(!$productId)
+            return redirect('/admin-panel/products');
 
         $data = request()->all();
 

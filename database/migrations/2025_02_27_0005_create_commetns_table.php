@@ -10,9 +10,7 @@ return new class{
                 product_id INT NOT NULL,
                 user_id INT NOT NULL,
                 body TEXT NOT NULL,
-                is_active BOOLEAN NOT NULL DEFAULT 0,
-                FOREIGN KEY (product_id) REFERENCES products(id),
-                FOREIGN KEY (user_id) REFERENCES users(id)
+                is_active BOOLEAN NOT NULL DEFAULT 0
         );";
         app()->db->pdo->exec($sql);
     }
