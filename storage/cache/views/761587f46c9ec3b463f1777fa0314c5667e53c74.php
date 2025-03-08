@@ -1,4 +1,13 @@
-
+<?php
+    $shoppingCartCount = [];
+    if(auth()->check())
+    {
+        $shoppingCartCount = (new \App\Models\ShoppingCart())
+                            ->where('user_id', auth()->user()->id)
+                            ->select('count(user_id) as count')
+                            ->get()[0]->count;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +36,14 @@
                     <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto <?php echo e(request()->is("/products") ? "bg-indigo-600 text-white" : ""); ?>" href="/products">Products</a></li>
                     <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto <?php echo e(request()->is("/contact-us") ? "bg-indigo-600 text-white" : ""); ?>" href="/contact-us">Contact Us</a></li>
                     <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto <?php echo e(request()->is("/about-us") ? "bg-indigo-600 text-white" : ""); ?>" href="/about-us">About Us</a></li>
-                    <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto <?php echo e(request()->is("/shopping-cart") ? "bg-indigo-600 text-white" : ""); ?>" href="/shopping-cart">Shopping Cart</a></li>
+                    <li class="w-full md:w-auto">
+                        <a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto <?php echo e(request()->is("/shopping-cart") ? "bg-indigo-600 text-white" : ""); ?>" href="/shopping-cart">
+                        Shopping Cart
+                        </a>
+                        <?php if($shoppingCartCount && !request()->is("/shopping-cart")): ?>
+                            <span class="ml-2 inline-flex items-center rounded-md bg-red-400/50 px-2 py-1 text-xs font-medium text-white ring-1 ring-red-600/10 ring-inset"><?php echo e($shoppingCartCount); ?></span>
+                        <?php endif; ?>
+                    </li>
 
                 </ul>
             </div>
@@ -35,7 +51,7 @@
             <div class="items-center hidden md:flex justify-end w-full md:w-auto text-center mt-3 md:mt-0" id="nav-items">
                 
                 <?php if(auth()->check()): ?>
-                    <a href="/admin-panel" class="justify-self-center flex justify-center items-center"><img class="size-8 rounded-full" src="<?php echo e(image(auth()->user()->image, "users")); ?>" alt="User Image"><span class="ml-2"><?php echo e(auth()->user()->name); ?></span></a>
+                    <a href="/panel" class="justify-self-center flex justify-center items-center"><img class="size-8 rounded-full" src="<?php echo e(image(auth()->user()->image, "users")); ?>" alt="User Image"><span class="ml-2"><?php echo e(auth()->user()->name); ?></span></a>
                 <?php else: ?>
                     <div>
                         <a class="text-indigo-600 hover:text-indigo-800" href="/auth/register">Register</a>

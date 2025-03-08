@@ -13,6 +13,7 @@ use App\Http\Controllers\Panel\AdminPanel\Tools\AdminPanelAddUserToolController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SignInController;
 use App\Http\Controllers\Product\SingleProductController;
+use App\Http\Controllers\ShoppingCart\ShoppingCartController;
 use Main\Core\Router;
 
 Router::get("/articles/{slug}/edit/{id:\d+}", function(){
@@ -82,4 +83,8 @@ Router::get('/admin-panel/orders', [AdminPanelOrdersController::class, "PanelVie
 Router::get("/products/{slug}", [SingleProductController::class, "productShow"]);
 Router::post("/products/comment/add", [SingleProductController::class, "addComment"]);
 
+// Shopping Cart
 
+Router::get('/shopping-cart', [ShoppingCartController::class, "view"]);
+Router::get('/shopping-cart/add', [ShoppingCartController::class, "add"]);
+Router::get('/shopping-cart/remove', [ShoppingCartController::class, "remove"]);

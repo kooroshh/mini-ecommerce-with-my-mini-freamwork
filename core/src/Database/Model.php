@@ -51,12 +51,34 @@ class Model extends Database
 
     public function delete(mixed $value, string $field = 'id')
     {
-
-
         $this->setStatement("DELETE FROM {$this->table} WHERE $field = :$field");
         $this->bindValues(["$field" => $value]);
 
         return $this->statement->execute();
+    }
+
+    public function deleteMultiple(array $data = [])
+    {
+
+
+        $query[] = "WHERE ";
+
+        foreach($data as $key => $value)
+        {
+            if($key !== array_key_first($data))
+                $query[] = "AND ";
+
+            $query[] = "$key = :$key";
+        }
+        $condition =  implode(' ',$query);
+
+        $query = "DELETE FROM {$this->table} " . $condition;
+
+        $this->setStatement("$query");
+        $this->bindValues($data);
+        
+        return $this->statement->execute();
+    
     }
 
     public function get(): array|bool

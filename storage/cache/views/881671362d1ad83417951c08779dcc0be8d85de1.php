@@ -1,9 +1,9 @@
-@extends("layouts.blank")
-
-@section("Sign In Page")
 
 
-@section('content')
+<?php $__env->startSection("Sign In Page"); ?>
+
+
+<?php $__env->startSection('content'); ?>
 
 
     <div class="min-h-screen px-2 flex flex-col justify-center bg-gray-50">
@@ -12,7 +12,7 @@
 
             <div class="max-w-[28rem] w-full mx-auto">
             
-                <a href="/"><img class="w-auto h-10 mx-auto" src="{{ image('logo.png') }}" alt="Logo" width="176" height="136"></a>
+                <a href="/"><img class="w-auto h-10 mx-auto" src="<?php echo e(image('logo.png')); ?>" alt="Logo" width="176" height="136"></a>
                 <h2 class="text-gray-900 tracking-tight font-bold text-2xl text-center mt-6">Sign in to your account</h2>
 
             </div>
@@ -22,25 +22,25 @@
                 <div class="lg:p-12 p-5 rounded-lg shadow bg-white">
 
                     <form class="space-y-6" action="/auth/sign-in" method="post" novalidate>
-                        <input type="hidden" name="_token" value="{{ session()->get('_token') }}">
+                        <input type="hidden" name="_token" value="<?php echo e(session()->get('_token')); ?>">
                         <div>
                             <label class="text-gray-900 font-medium text-sm block" for="email">Email Address</label>
                             <div class="mt-2">
-                                <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="email" name="email" id="email" value="{{ $old('email') }}">
+                                <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="email" name="email" id="email" value="<?php echo e($old('email')); ?>">
                             </div>
-                            @if ($errors->has('email'))
-                                <p class="text-xs text-red-500 mt-1 pl-2.5">{{ $errors->first("email") }}</p>
-                            @endif
+                            <?php if($errors->has('email')): ?>
+                                <p class="text-xs text-red-500 mt-1 pl-2.5"><?php echo e($errors->first("email")); ?></p>
+                            <?php endif; ?>
                         </div>
 
                         <div>
                             <label class="text-gray-900 font-medium text-sm block" for="password">Password</label>
                             <div class="mt-2">
-                                <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="password" name="password" id="password" value="{{ $old('password') }}">
+                                <input class="text-sm py-1.5 px-3 block w-full rounded-md bg-white outline outline-1 -outline-offset-1 outline-gray-300" type="password" name="password" id="password" value="<?php echo e($old('password')); ?>">
                             </div>
-                            @if ($errors->has('password'))
-                                <p class="text-xs text-red-500 mt-1 pl-2.5">{{ $errors->first("password") }}</p>
-                            @endif
+                            <?php if($errors->has('password')): ?>
+                                <p class="text-xs text-red-500 mt-1 pl-2.5"><?php echo e($errors->first("password")); ?></p>
+                            <?php endif; ?>
                         </div>
 
                         <div class="pt-4">
@@ -85,4 +85,5 @@
 
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("layouts.blank", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Lenovo\Desktop\koori\session16 MVC\index2 Main\main\resources\views/auth/singIn.blade.php ENDPATH**/ ?>

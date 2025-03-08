@@ -19,7 +19,7 @@
 
             <div class="max-w-[30rem] w-full mx-auto mt-10">
 
-                <div class="p-12 rounded-lg shadow bg-white">
+                <div class="lg:p-12 p-5 rounded-lg shadow bg-white">
 
                     <form class="space-y-6" action="/auth/register" method="post" novalidate>
                         <input type="hidden" name="_token" value="{{ session()->get('_token') }}">
@@ -73,13 +73,13 @@
 
                         <div class="mt-10 flex gap-3 items-center">
 
-                            <div class="w-4/12 bg-gray-200 py-[0.03rem] h-0"></div>
-                            <p class="w-4/12 font-medium text-sm text-gray-900">Or Continuo With</p>
-                            <div class="w-4/12 bg-gray-200 py-[0.03rem] h-0"></div>
+                            <div class="lg:w-4/12 md:w-3/12 w-2/12 bg-gray-200 py-[0.03rem] h-0"></div>
+                            <p class="lg:w-4/12 md:w-6/12 w-8/12 font-medium md:text-sm text-xs text-gray-900 text-center">Or Continuo With</p>
+                            <div class="lg:w-4/12 md:w-3/12 w-2/12 bg-gray-200 py-[0.03rem] h-0"></div>
 
                         </div>
 
-                        <div class="grid grid-cols-2 gap-4 mt-6">
+                        <div class="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-6">
 
                             <button class="ring-inset ring-1 ring-gray-300 shadow text-gray-900 font-semibold bg-gray-50 rounded-md flex justify-center items-center gap-3 w-full py-2 px-3" title="Disable" disabled>
                                 <svg class="size-5" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.0003 4.75C13.7703 4.75 15.3553 5.36002 16.6053 6.54998L20.0303 3.125C17.9502 1.19 15.2353 0 12.0003 0C7.31028 0 3.25527 2.69 1.28027 6.60998L5.27028 9.70498C6.21525 6.86002 8.87028 4.75 12.0003 4.75Z" fill="#EA4335"></path><path d="M23.49 12.275C23.49 11.49 23.415 10.73 23.3 10H12V14.51H18.47C18.18 15.99 17.34 17.25 16.08 18.1L19.945 21.1C22.2 19.01 23.49 15.92 23.49 12.275Z" fill="#4285F4"></path><path d="M5.26498 14.2949C5.02498 13.5699 4.88501 12.7999 4.88501 11.9999C4.88501 11.1999 5.01998 10.4299 5.26498 9.7049L1.275 6.60986C0.46 8.22986 0 10.0599 0 11.9999C0 13.9399 0.46 15.7699 1.28 17.3899L5.26498 14.2949Z" fill="#FBBC05"></path><path d="M12.0004 24.0001C15.2404 24.0001 17.9654 22.935 19.9454 21.095L16.0804 18.095C15.0054 18.82 13.6204 19.245 12.0004 19.245C8.8704 19.245 6.21537 17.135 5.2654 14.29L1.27539 17.385C3.25539 21.31 7.3104 24.0001 12.0004 24.0001Z" fill="#34A853"></path></svg>

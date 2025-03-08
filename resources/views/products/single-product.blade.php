@@ -6,11 +6,11 @@
 
 @section("content")
 
-    <div class="px-3 py-4 flex">
+    <div class="px-3 py-4 flex flex-col-reverse gap-7 lg:gap-0 lg:flex-row">
 
-        <div class="w-7/12">
+        <div class="lg:w-7/12 w-full">
 
-            <img class="object-cover bg-gray-100 rounded-lg w-full h-auto" src="{{ image($product->image, "products") }}" alt="Product Image">
+            <img class="object-cover bg-gray-100 rounded-lg w-full h-auto hidden lg:block" src="{{ image($product->image, "products") }}" alt="Product Image">
             <div class="mt-10 divide-y">
 
                 <div class="flex gap-8 *:whitespace-nowrap *:font-medium *:text-sm *:py-3 *:cursor-pointer">
@@ -88,17 +88,15 @@
             </div>
 
         </div>
-        <div class="w-5/12 px-2">
-        
+        <div class="lg:w-5/12 w-full px-2">
+            <img class="mb-3 lg:hidden object-cover bg-gray-100 rounded-lg w-full h-auto" src="{{ image($product->image, "products") }}" alt="Product Image">
             <div class="space-y-5 divide-y-2">
-
+                
                 <div>
                     <h2 class="text-2xl sm:text-3xl text-gray-900 tracking-tight font-bold">{{ $product->name }}</h2>
-                    <p class="text-gray-500 text-sm mt-2 ml-1">{{ explode(' ', $product->created_at)[0] }}</p>
                     <p class="text-gray-900  tracking-tight text-3xl mt-2">${{ $product->price }}</p>
-                    <p class="mt-2 text-gray-900 tracking-tight text-xl">Stock :{{ $product->count }}</p>
                     <p class="text-gray-500 my-6 w-full bg-gray-50 p-2 rounded-md">{{ $product->description }}</p>
-                    <a href="/products/add?id={{ $product->id }}" class="block w-full bg-indigo-600 text-white text-center px-8 py-3 rounded-md">Add To Shopping Cart</a> 
+                    <a href="/shopping-cart/add?productId={{ $product->id }}" class="block w-full bg-indigo-600 text-white text-center px-8 py-3 rounded-md">Add To Shopping Cart</a> 
                 </div>
                 <div class="pt-3">
 
@@ -108,6 +106,16 @@
                             <div class="px-2 py-1 bg-gray-50 rounded-full">{{ $category }}</div>
                         @endforeach
                     </div>
+
+                </div>
+                <div class="pt-3">
+
+                    <h3 class="text-lg sm:text-xl text-gray-900 tracking-tight font-bold">Products Details</h3>
+                    <ol class="space-y-2 list-disc list-inside mt-4">
+                        <li class="text-gray-900 tracking-tight text-xl">Stock: {{ $product->count }}</li>
+                        <li class="text-gray-900 tracking-tight text-xl">Release Date: {{ explode(' ', $product->created_at)[0] }}</li>
+                        <li class="text-gray-900 tracking-tight text-xl">Last Update: {{ explode(' ', $product->updated_at)[0] }}</li>
+                    </ol>
 
                 </div>
                 <div class="pt-3">
