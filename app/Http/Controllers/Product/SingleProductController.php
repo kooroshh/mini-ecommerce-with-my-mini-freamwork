@@ -17,6 +17,7 @@ class SingleProductController extends Controller
         $productComment = (new Comments())
                             ->join('users', "id", "comments.user_id")
                             ->where('product_id', $product->id)
+                            ->where('is_active', true)
                             ->select("users.image", "users.name", "comments.body", "comments.created_at")
                             ->get();
 

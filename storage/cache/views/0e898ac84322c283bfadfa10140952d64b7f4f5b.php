@@ -11,7 +11,7 @@
         <h2 class="sm:text-4xl text-3xl text-gray-900 tracking-tight font-bold text-center">Shopping Cart</h2>
 
         <?php if($productCount): ?>
-            <form action="/checkout" method="post" class="mt-12">
+            <div class="mt-12">
 
                 <ul class="border-gray-200 border-y divide-y">
 
@@ -68,7 +68,7 @@
                             <p>Total</p>
                             <p>$<?php echo e($totalPrice); ?></p>
                         </div>
-                        <p class="text-gray-500 text-sm mt-1">The Final Amount Displayed In The Checkout</p>
+                        <p class="text-gray-500 text-sm mt-1">The final amount displayed in the checkout</p>
 
                     </div>
 
@@ -89,7 +89,7 @@
                 </div>
 
 
-            </form>
+            </div>
         <?php else: ?>
 
             <h3 class="sm:text-2xl text-xl text-gray-500 tracking-tight font-medium text-center mt-5">There Is Not Any Product Yet!</h3>

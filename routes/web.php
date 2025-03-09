@@ -12,6 +12,7 @@ use App\Http\Controllers\Panel\AdminPanel\Tools\AdminPanelAddProductToolControll
 use App\Http\Controllers\Panel\AdminPanel\Tools\AdminPanelAddUserToolController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SignInController;
+use App\Http\Controllers\Checkout\CheckoutController;
 use App\Http\Controllers\Product\SingleProductController;
 use App\Http\Controllers\ShoppingCart\ShoppingCartController;
 use Main\Core\Router;
@@ -88,3 +89,11 @@ Router::post("/products/comment/add", [SingleProductController::class, "addComme
 Router::get('/shopping-cart', [ShoppingCartController::class, "view"]);
 Router::get('/shopping-cart/add', [ShoppingCartController::class, "add"]);
 Router::get('/shopping-cart/remove', [ShoppingCartController::class, "remove"]);
+
+// Checkout
+
+Router::get('/checkout', [CheckoutController::class, "checkoutView"]);
+Router::get('/checkout/paid', [CheckoutController::class, "paid"]);
+Router::get('/checkout/cancel', [CheckoutController::class, "cancel"]);
+Router::post('/checkout/pay', [CheckoutController::class, "pay"]);
+

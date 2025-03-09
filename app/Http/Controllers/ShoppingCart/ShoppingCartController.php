@@ -49,7 +49,7 @@ class ShoppingCartController extends Controller
         ]);
 
         if ($validation->fails()) {
-            return redirect("/products");
+            return redirect("/shopping-cart");
         }
         
         $productId = $validation->getValidatedData()['productId'];

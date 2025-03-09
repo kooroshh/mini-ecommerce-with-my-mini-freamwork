@@ -37,10 +37,10 @@
                     <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto {{ request()->is("/contact-us") ? "bg-indigo-600 text-white" : "" }}" href="/contact-us">Contact Us</a></li>
                     <li class="w-full md:w-auto"><a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto {{ request()->is("/about-us") ? "bg-indigo-600 text-white" : "" }}" href="/about-us">About Us</a></li>
                     <li class="w-full md:w-auto">
-                        <a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto {{ request()->is("/shopping-cart") ? "bg-indigo-600 text-white" : "" }}" href="/shopping-cart">
+                        <a class="px-1.5 py-1 rounded w-full block md:inline text-center md:w-auto {{ request()->is("/shopping-cart", "/checkout") ? "bg-indigo-600 text-white" : "" }}" href="/shopping-cart">
                         Shopping Cart
                         </a>
-                        @if ($shoppingCartCount && !request()->is("/shopping-cart"))
+                        @if ($shoppingCartCount && !request()->is("/shopping-cart", "/checkout"))
                             <span class="ml-2 inline-flex items-center rounded-md bg-red-400/50 px-2 py-1 text-xs font-medium text-white ring-1 ring-red-600/10 ring-inset">{{ $shoppingCartCount }}</span>
                         @endif
                     </li>

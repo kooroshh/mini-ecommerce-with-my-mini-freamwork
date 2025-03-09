@@ -11,6 +11,7 @@ class Model extends Database
     protected int $fetchMod = PDO::FETCH_OBJ;
     protected array $selectedItems = [];
     protected int $limit = 0;
+    protected string $order = "";
     protected array $whereList = [];
     protected array $joinList = [];
     protected array $valuesForBind = [];
@@ -37,13 +38,13 @@ class Model extends Database
 
     }
 
-    public function update(int $id, array $data) : bool
+    public function update(mixed $value, array $data, string $field = "id") : bool
     {
         $fieldsOfData = array_map(fn($key) => "$key = :$key", array_keys($data));
         $fieldsOfData = implode(',', $fieldsOfData);
 
-        $this->setStatement("UPDATE {$this->table} SET $fieldsOfData WHERE id = :id");
-        $this->bindValues(array_merge($data, ['id' => $id]));
+        $this->setStatement("UPDATE {$this->table} SET $fieldsOfData WHERE $field = :$field");
+        $this->bindValues(array_merge($data, [$field => $value]));
 
         return $this->statement->execute();
 
@@ -153,6 +154,13 @@ class Model extends Database
         return $this;
     }
 
+    public function order(string $field, string $method = "ASC") : self
+    {
+        $this->order = "$field $method";
+
+        return $this;
+    }
+
     public function result() : self
     {
         $query = ['Select'];
@@ -174,6 +182,9 @@ class Model extends Database
 
         if($this->limit !== 0)
             $query[] = "LIMIT {$this->limit}";
+
+        if($this->order !== "")
+            $query[] = "ORDER BY {$this->order}";
 
 
         $this->setStatement(implode(' ', $query));

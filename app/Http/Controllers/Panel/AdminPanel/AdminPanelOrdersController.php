@@ -1,9 +1,9 @@
 <?php namespace App\Http\Controllers\Panel\AdminPanel;
 
 
-use App\Models\Comments;
+
 use App\Models\Orders;
-use App\Models\ShoppingCart;
+use App\Models\OrdersProducts;
 use Main\Core\Controller;
 
 class AdminPanelOrdersController extends Controller
@@ -12,33 +12,35 @@ class AdminPanelOrdersController extends Controller
     public function panelView()
     {
 
-
         if(!isAdmin())
             return $this->render("errors.404");
 
         $orders = (new Orders())
                 ->join('users', "id", "orders.user_id")
-                ->select("users.id", 'users.image', "users.email", "orders.status", "orders.created_at", "orders.close_at", "orders.price")
+                ->select("users.id", "orders.order_index as orderCode", "orders.id as orderId", 'users.image', "users.email", "orders.status", "orders.created_at", "orders.close_at", "orders.price")
                 ->get();
 
         $ordersWithProducts = [];
         foreach($orders as $order)
         {
             $userId = $order->id;
-            $ordersWithProducts[$userId] = (object) get_object_vars($order);
-            $ordersWithProducts[$userId]->close_at = is_null($ordersWithProducts[$userId]->close_at) ? "Not Closed" : $ordersWithProducts[$userId]->close_at;
+            $orderId = $order->orderId;
+            $ordersWithProducts[$orderId] = (object) get_object_vars($order);
+            $ordersWithProducts[$orderId]->close_at = is_null($ordersWithProducts[$orderId]->close_at) ? "Not Closed" : $ordersWithProducts[$orderId]->close_at;
             $ordersProducts = [];
-            $products = (new ShoppingCart)
-                ->join('products', "id", "shopping_cart.product_id")
-                ->where('shopping_cart.user_id', $userId)
+            $products = (new OrdersProducts())
+                ->join('products', "id", "orders_products.product_id")
+                ->where('orders_products.order_id', $orderId)
                 ->select("products.slug")
                 ->get();
+            
+            
           
             foreach($products as $product)
             {
-                $ordersProducts[$userId][] = $product->slug;
+                $ordersProducts[$orderId][] = $product->slug;
             }
-            $ordersWithProducts[$userId]->productsSlugs = $ordersProducts[$userId];
+            $ordersWithProducts[$orderId]->productsSlugs = $ordersProducts[$orderId];
 
    
         }

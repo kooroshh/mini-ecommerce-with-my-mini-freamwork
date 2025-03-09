@@ -33,7 +33,8 @@
                             <thead>
                                 <tr>
 
-                                    <th scope="col" class="sm:pl-0 text-gray-900 whitespace-nowrap font-semibold text-sm text-left pl-4 pr-3 py-3.5">User Image</th>
+                                    <th scope="col" class="sm:pl-0 text-gray-900 whitespace-nowrap font-semibold text-sm text-left pl-4 pr-3 py-3.5">Order Code</th>
+                                    <th scope="col" class="text-gray-900 whitespace-nowrap font-semibold text-sm text-left pl-4 px-3 py-3.5">User Image</th>
                                     <th scope="col" class="text-gray-900 whitespace-nowrap font-semibold text-sm text-left pl-4 px-3 py-3.5">User Email</th>
                                     <th scope="col" class="text-gray-900 whitespace-nowrap font-semibold text-sm text-left pl-4 px-3 py-3.5">Products Slug</th>
                                     <th scope="col" class="text-gray-900 whitespace-nowrap font-semibold text-sm text-left pl-4 px-3 py-3.5">Total Price</th>
@@ -48,7 +49,8 @@
                                 <?php $__currentLoopData = $orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
 
-                                        <td class="sm:pl-0 text-gray-900 whitespace-nowrap font-medium text-sm pl-4 pr-3 py-4"><img class="size-6 rounded-md" src="<?php echo e(image($order->image, "users")); ?>" alt="User Image"></td>
+                                        <td class="sm:pl-0 text-gray-400 whitespace-nowrap font-medium text-sm pl-4 pr-3 py-4">#<?php echo e($order->orderCode); ?></td>
+                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><img class="size-6 rounded-md" src="<?php echo e(image($order->image, "users")); ?>" alt="User Image"></td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($order->email); ?></td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3 min-w-48">
                                             <div class="flex flex-wrap gap-3 w-full">
