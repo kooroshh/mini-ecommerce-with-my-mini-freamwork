@@ -57,8 +57,8 @@
                                                     @foreach ($order->productsSlugs as $slug)
                                                         <div class="px-2 py-1 bg-gray-50 rounded-full">{{ $slug }}</div>
                                                     @endforeach
-                                                </div>
-                                            </td>
+                                            </div>
+                                        </td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">${{ $order->price }}</td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3 h-full">
                                             <div class="flex items-center gap-2.5">

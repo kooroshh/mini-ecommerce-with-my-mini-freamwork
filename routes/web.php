@@ -13,6 +13,7 @@ use App\Http\Controllers\Panel\AdminPanel\Tools\AdminPanelAddUserToolController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SignInController;
 use App\Http\Controllers\Checkout\CheckoutController;
+use App\Http\Controllers\Product\ProductsController;
 use App\Http\Controllers\Product\SingleProductController;
 use App\Http\Controllers\ShoppingCart\ShoppingCartController;
 use Main\Core\Router;
@@ -81,6 +82,8 @@ Router::get('/admin-panel/orders', [AdminPanelOrdersController::class, "PanelVie
 
 // Products
 
+Router::get("/products", [ProductsController::class, "productsView"]);
+Router::post("/products", [ProductsController::class, "filterProducts"]);
 Router::get("/products/{slug}", [SingleProductController::class, "productShow"]);
 Router::post("/products/comment/add", [SingleProductController::class, "addComment"]);
 

@@ -57,8 +57,8 @@
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">{{ $product->slug }}</td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">${{ $product->price }}</td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">{{ $product->count }}</td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">
-                                            <div class="flex flex-wrap gap-3">
+                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3 min-w-48">
+                                            <div class="flex flex-wrap gap-3 w-full">
                                                 @foreach ($product->categories as $category)
                                                     <div class="px-2 py-1 bg-gray-50 rounded-full">{{ $category }}</div>
                                                 @endforeach

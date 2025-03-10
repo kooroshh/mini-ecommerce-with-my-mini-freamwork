@@ -101,10 +101,12 @@ class AdminPanelProductsController extends Controller
         $productWithCategories->categories = $productCategories;
 
         $categories = (new Categories())->select("name")->get();
+        $oldCategories = $productWithCategories->categories ?? [];
 
         return $this->render("user.admin-panel.products.admin-panel-products-edit",[
             "product" => $productWithCategories,
             'categories' => $categories,
+            "oldCategories" => $oldCategories
         ]);
     }
 

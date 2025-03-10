@@ -57,8 +57,8 @@
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($product->slug); ?></td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">$<?php echo e($product->price); ?></td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($product->count); ?></td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">
-                                            <div class="flex flex-wrap gap-3">
+                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3 min-w-48">
+                                            <div class="flex flex-wrap gap-3 w-full">
                                                 <?php $__currentLoopData = $product->categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <div class="px-2 py-1 bg-gray-50 rounded-full"><?php echo e($category); ?></div>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

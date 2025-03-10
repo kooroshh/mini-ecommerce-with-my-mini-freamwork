@@ -80,32 +80,22 @@
             <div>
                 <h3 class="text-gray-900 font-medium text-sm block" for="categories">Categories</h3>
                 <div class="mt-2 bg-white py-3 px-6 flex flex-wrap gap-7 items-center rounded-md">
-                    @php
-                        $oldCategories = $old('categories');
-                    @endphp
+
                     @foreach ($categories as $key => $value)
 
-                        @if (!empty($oldCategories))
-                            @foreach ($oldCategories as $key2 => $value2)
+                        @if ($old('categories'))
 
-                                @if ($value2 == $value->name)
-                                    <label class="bg-gray-200 rounded-full px-4 py-2 select-none" for="category_{{ $key }}">
-                                        <input checked type="checkbox" class="checker hidden" name="categories[]" id="category_{{ $key }}" value="{{ $value->name }}">
-                                        {{ $value->name }}
-                                    </label> 
-                                    @php
-                                        $oldCategories = array_filter($oldCategories, fn($item) => !($item == $value->name));              
-                                    @endphp
-                                    @break                             
-                                @else
-                                    <label class="border rounded-full px-4 py-2 select-none" for="category_{{ $key }}">
-                                        <input  type="checkbox" class="checker hidden" name="categories[]" id="category_{{ $key }}" value="{{ $value->name }}">
-                                        {{ $value->name }}
-                                    </label>
-                                @endif          
-
-                            @endforeach
-
+                            @if (in_array($value->name, $old("categories")))
+                                <label class="bg-gray-200 rounded-full px-4 py-2 select-none" for="category_{{ $key }}">
+                                    <input checked type="checkbox" class="checker hidden" name="categories[]" id="category_{{ $key }}" value="{{ $value->name }}">
+                                    {{ $value->name }}
+                                </label> 
+                            @else
+                                <label class="border rounded-full px-4 py-2 select-none" for="category_{{ $key }}">
+                                    <input  type="checkbox" class="checker hidden" name="categories[]" id="category_{{ $key }}" value="{{ $value->name }}">
+                                    {{ $value->name }}
+                                </label>
+                            @endif
 
                         @else
                             <label class="border rounded-full px-4 py-2 select-none" for="category_{{ $key }}">

@@ -95,7 +95,7 @@
                 <div>
                     <h2 class="text-2xl sm:text-3xl text-gray-900 tracking-tight font-bold">{{ $product->name }}</h2>
                     <p class="text-gray-900  tracking-tight text-3xl mt-2">${{ $product->price }}</p>
-                    <p class="text-gray-500 my-6 w-full bg-gray-50 p-2 rounded-md">{{ $product->description }}</p>
+                    <p class="text-gray-500 my-6 w-full bg-gray-50 p-2 rounded-md break-words">{{ $product->description }}</p>
                     <a href="/shopping-cart/add?productId={{ $product->id }}" class="block w-full bg-indigo-600 text-white text-center px-8 py-3 rounded-md">Add To Shopping Cart</a> 
                 </div>
                 <div class="pt-3">

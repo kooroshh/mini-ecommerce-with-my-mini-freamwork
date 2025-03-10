@@ -57,8 +57,8 @@
                                                     <?php $__currentLoopData = $order->productsSlugs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slug): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                         <div class="px-2 py-1 bg-gray-50 rounded-full"><?php echo e($slug); ?></div>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                </div>
-                                            </td>
+                                            </div>
+                                        </td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">$<?php echo e($order->price); ?></td>
                                         <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3 h-full">
                                             <div class="flex items-center gap-2.5">
