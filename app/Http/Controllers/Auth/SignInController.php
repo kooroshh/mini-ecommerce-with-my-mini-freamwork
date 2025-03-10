@@ -11,7 +11,7 @@ class SignInController extends Controller
     public function singInView()
     {
         if(auth()->check())
-            return redirect('/user');
+            return redirect('/panel');
         return $this->render('auth.singIn');
     }
 
@@ -52,7 +52,7 @@ class SignInController extends Controller
 
         auth()->login($user->id);
 
-        return redirect('/user');
+        return redirect('/panel');
 
     }
 

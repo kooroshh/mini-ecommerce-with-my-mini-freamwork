@@ -21,32 +21,24 @@
                         Add Comments
                     </div>
                 </div>
-                <div class="space-y-3 px-4" id="comments">
+                <div class="space-y-3 divide-y px-4" id="comments">
                     <?php if($comments): ?>
-                        <?php
-                            $counter = 0;
-                        ?>
-                        <?php $__currentLoopData = $comments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php
-                                $counter++;
-                            ?>
-                            <div class="text-gray-500 text-sm flex">
 
-                                <div class="py-5 flex-none mr-4">
+                        <?php $__currentLoopData = $comments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                            <div class="text-gray-500 text-sm flex flex-col">
+
+                                <div class="py-5 flex">
                                     <img class="bg-gray-100 rounded-full size-10" src="<?php echo e(image($comment->image, "users")); ?>" alt="">
-                                </div>
-                                <div 
-                                    <?php if($counter != 1): ?>
-                                        class="py-5 grow border-t"
-                                    <?php else: ?>
-                                        class="py-5 grow"
-                                    <?php endif; ?>
-                                    >
-                                    <h3 class="text-gray-900 font-medium"><?php echo e($comment->name); ?></h3>
-                                    <p><?php echo e(explode(' ', $comment->created_at)[0]); ?></p>
-                                    <div class="mt-4 bg-gray-50 w-full p-2 rounded-md">
-                                        <p><?php echo e($comment->body); ?></p>
+                                    <div class="ml-2">
+                                        <h3 class="text-gray-900 font-medium"><?php echo e($comment->name); ?></h3>
+                                        <p><?php echo e(explode(' ', $comment->created_at)[0]); ?></p>
                                     </div>
+                                </div>
+                                <div class="w-full pb-5">
+
+                                    <p class="bg-gray-50 w-full p-2 rounded-md break-words whitespace-pre-wrap"><?php echo e($comment->body); ?></p>
+
                                 </div>
 
                             </div>
@@ -95,7 +87,7 @@
                 <div>
                     <h2 class="text-2xl sm:text-3xl text-gray-900 tracking-tight font-bold"><?php echo e($product->name); ?></h2>
                     <p class="text-gray-900  tracking-tight text-3xl mt-2">$<?php echo e($product->price); ?></p>
-                    <p class="text-gray-500 my-6 w-full bg-gray-50 p-2 rounded-md break-words"><?php echo e($product->description); ?></p>
+                    <p class="text-gray-500 my-6 w-full bg-gray-50 p-2 rounded-md break-words whitespace-pre-wrap"><?php echo e($product->description); ?></p>
                     <a href="/shopping-cart/add?productId=<?php echo e($product->id); ?>" class="block w-full bg-indigo-600 text-white text-center px-8 py-3 rounded-md">Add To Shopping Cart</a> 
                 </div>
                 <div class="pt-3">

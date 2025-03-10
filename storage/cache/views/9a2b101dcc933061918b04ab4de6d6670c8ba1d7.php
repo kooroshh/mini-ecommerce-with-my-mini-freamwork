@@ -30,17 +30,17 @@
 
                         <div class="flex flex-col gap-4 text-center md:text-start">
                             <h5 class="text-gray-900 tracking-tight font-semibold text-5xl">Over 27,000</h5>
-                            <p class="text-gray-600 text-base text-indigo-600">Active Users</p>
+                            <p class="text-base text-indigo-600">Active Users</p>
                         </div>
 
                         <div class="flex flex-col gap-4 text-center md:text-start">
                             <h5 class="text-gray-900 tracking-tight font-semibold text-5xl">Over 200,000</h5>
-                            <p class="text-gray-600 text-base text-indigo-600">Order</p>
+                            <p class="text-base text-indigo-600">Order</p>
                         </div>
 
                         <div class="flex flex-col gap-4 text-center md:text-start">
                             <h5 class="text-gray-900 tracking-tight font-semibold text-5xl">Over 2,000</h5>
-                            <p class="text-gray-600 text-base text-indigo-600">Products</p>
+                            <p class="text-base text-indigo-600">Products</p>
                         </div>
 
                     </div>    

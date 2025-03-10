@@ -90,6 +90,9 @@ class Router
         }
         
         session()->set('_token', bin2hex(random_bytes(30)));
+
+        if(!auth()->user())
+            auth()->logout();
         
         
         foreach($this->routerFiles as $file)

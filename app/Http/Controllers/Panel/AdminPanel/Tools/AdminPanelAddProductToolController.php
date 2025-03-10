@@ -102,8 +102,6 @@ class AdminPanelAddProductToolController extends Controller
         }
 
 
-
-
         return redirect("/admin-panel/products");
     }
 

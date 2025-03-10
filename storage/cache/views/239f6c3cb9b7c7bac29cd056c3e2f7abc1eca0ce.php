@@ -21,9 +21,9 @@
                     <span class="text-gray-500 text-sm"><?php echo e(explode(' ', $data->created_at)[0]); ?></span>
                 </div>
             </div>
-            <div class="w-full bg-gray-50 rounded p-2">
-                <p class="text-gray-500 text-base"><?php echo e($data->body); ?></p>
-            </div>
+
+            <p class="w-full bg-gray-50 rounded p-2 text-gray-500 text-base break-words whitespace-pre-wrap"><?php echo e($data->body); ?></p>
+
         </div>
         <div class="bg-white w-full mt-4 p-2">
             <div class="w-full lg:w-4/12 ml-auto mr-2 flex items-center gap-4">

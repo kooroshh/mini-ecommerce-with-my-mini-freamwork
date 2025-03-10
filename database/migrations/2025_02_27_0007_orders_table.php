@@ -11,8 +11,7 @@ return new class{
                 price BIGINT NOT NULL,
                 status ENUM('paid', 'paying', 'cancelled') NOT NULL DEFAULT 'paying',
                 created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                close_at TIMESTAMP NULL DEFAULT NULL,
-                FOREIGN KEY (user_id) REFERENCES users(id)
+                close_at TIMESTAMP NULL DEFAULT NULL
         );";
         app()->db->pdo->exec($sql);
     }

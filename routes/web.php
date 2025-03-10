@@ -13,6 +13,7 @@ use App\Http\Controllers\Panel\AdminPanel\Tools\AdminPanelAddUserToolController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SignInController;
 use App\Http\Controllers\Checkout\CheckoutController;
+use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Product\ProductsController;
 use App\Http\Controllers\Product\SingleProductController;
 use App\Http\Controllers\ShoppingCart\ShoppingCartController;
@@ -99,4 +100,9 @@ Router::get('/checkout', [CheckoutController::class, "checkoutView"]);
 Router::get('/checkout/paid', [CheckoutController::class, "paid"]);
 Router::get('/checkout/cancel', [CheckoutController::class, "cancel"]);
 Router::post('/checkout/pay', [CheckoutController::class, "pay"]);
+
+
+// Home
+
+Router::get('/', [HomeController::class, "homeView"]);
 

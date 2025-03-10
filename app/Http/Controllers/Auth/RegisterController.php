@@ -10,14 +10,14 @@ class RegisterController extends Controller
     public function registerView()
     {
         if(auth()->check())
-            return redirect('/user');
+            return redirect('/panel');
         return $this->render("auth.register");
     }
 
     public function register()
     {
         if(auth()->check())
-            return redirect('/user');
+            return redirect('/panel');
 
         $validation = $this->validate(request()->all(),[
             "name" => "required|min:5|max:255",

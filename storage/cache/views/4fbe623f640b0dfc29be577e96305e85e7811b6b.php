@@ -86,12 +86,12 @@
                         <a href="/products/<?php echo e($product->slug); ?>" class="block">
                             <div class="bg-white border border-gray-200 rounded-lg overflow-hidden flex flex-col">
 
-                                <img class="sm:h-96 object-cover bg-gray-200" src="<?php echo e(image($product->image, "products")); ?>" alt="Product Image">
+                                <img class="sm:h-96 object-cover bg-gray-200 hover:scale-105 transition duration-500" src="<?php echo e(image($product->image, "products")); ?>" alt="Product Image">
                                 <div class="p-4 flex-1 flex flex-col space-y-2">
 
                                     <h3 class="text-gray-900 font-medium"><?php echo e($product->name); ?></h3>
                                     <p class="text-gray-500 truncate"><?php echo e($product->description); ?></p>
-                                    <p class="text-gray-500 text-sm">Stock: <?php echo e($product->slug); ?></p>
+                                    <p class="text-gray-500 text-sm">Stock: <?php echo e($product->count); ?></p>
                                     <p class="text-gray-900 font-medium text-base">$<?php echo e($product->price); ?></p>
                                 </div>
 

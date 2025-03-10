@@ -86,12 +86,12 @@
                         <a href="/products/{{ $product->slug }}" class="block">
                             <div class="bg-white border border-gray-200 rounded-lg overflow-hidden flex flex-col">
 
-                                <img class="sm:h-96 object-cover bg-gray-200" src="{{ image($product->image, "products") }}" alt="Product Image">
+                                <img class="sm:h-96 object-cover bg-gray-200 hover:scale-105 transition duration-500" src="{{ image($product->image, "products") }}" alt="Product Image">
                                 <div class="p-4 flex-1 flex flex-col space-y-2">
 
                                     <h3 class="text-gray-900 font-medium">{{ $product->name }}</h3>
                                     <p class="text-gray-500 truncate">{{ $product->description }}</p>
-                                    <p class="text-gray-500 text-sm">Stock: {{ $product->slug }}</p>
+                                    <p class="text-gray-500 text-sm">Stock: {{ $product->count }}</p>
                                     <p class="text-gray-900 font-medium text-base">${{ $product->price }}</p>
                                 </div>
 
