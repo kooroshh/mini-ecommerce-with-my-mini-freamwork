@@ -46,46 +46,49 @@
                             </thead>
                             <tbody class="divide-y">
 
-                                @foreach ($orders as $order)
-                                    <tr>
+                                @if ($orders)
+                                    @foreach ($orders as $order)
+                                        <tr>
 
-                                        <td class="sm:pl-0 text-gray-400 whitespace-nowrap font-medium text-sm pl-4 pr-3 py-4">#{{ $order->orderCode }}</td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><img class="size-6 rounded-md" src="{{ image($order->image, "users") }}" alt="User Image"></td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">{{ $order->email }}</td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3 min-w-48">
-                                            <div class="flex flex-wrap gap-3 w-full">
-                                                    @foreach ($order->productsSlugs as $slug)
-                                                        <div class="px-2 py-1 bg-gray-50 rounded-full">{{ $slug }}</div>
-                                                    @endforeach
-                                            </div>
-                                        </td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">${{ $order->price }}</td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3 h-full">
-                                            <div class="flex items-center gap-2.5">
-                                                {{ $order->status }}
-                                                @if ($order->status == "paid")
-                                                    <div class="inline-flex relative size-3.5 justify-center -mb-[0.3rem]">
-                                                        <div class="absolute top-0 right-0 size-full bg-green-400/70 animate-ping rounded-full"></div>
-                                                        <div class="size-3 justify-self-center self-center bg-green-500 rounded-full"></div>
-                                                    </div>
-                                                @elseif($order->status == "paying")
-                                                    <div class="inline-flex relative size-3.5 justify-center -mb-[0.3rem]">
-                                                        <div class="absolute top-0 right-0 size-full bg-amber-400/70 animate-ping rounded-full"></div>
-                                                        <div class="size-3 justify-self-center self-center bg-amber-500 rounded-full"></div>
-                                                    </div>
-                                                @elseif($order->status == "cancelled")
-                                                    <div class="inline-flex relative size-3.5 justify-center -mb-[0.3rem]">
-                                                        <div class="absolute top-0 right-0 size-full bg-red-400/70 animate-ping rounded-full"></div>
-                                                        <div class="size-3 justify-self-center self-center bg-red-500 rounded-full"></div>
-                                                    </div>
-                                                @endif                                                
-                                            </div>
+                                            <td class="sm:pl-0 text-gray-400 whitespace-nowrap font-medium text-sm pl-4 pr-3 py-4">#{{ $order->orderCode }}</td>
+                                            <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><img class="size-6 rounded-md" src="{{ image($order->image, "users") }}" alt="User Image"></td>
+                                            <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">{{ $order->email }}</td>
+                                            <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3 min-w-48">
+                                                <div class="flex flex-wrap gap-3 w-full">
+                                                        @foreach ($order->productsSlugs as $slug)
+                                                            <div class="px-2 py-1 bg-gray-50 rounded-full">{{ $slug }}</div>
+                                                        @endforeach
+                                                </div>
+                                            </td>
+                                            <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">${{ $order->price }}</td>
+                                            <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3 h-full">
+                                                <div class="flex items-center gap-2.5">
+                                                    {{ $order->status }}
+                                                    @if ($order->status == "paid")
+                                                        <div class="inline-flex relative size-3.5 justify-center -mb-[0.3rem]">
+                                                            <div class="absolute top-0 right-0 size-full bg-green-400/70 animate-ping rounded-full"></div>
+                                                            <div class="size-3 justify-self-center self-center bg-green-500 rounded-full"></div>
+                                                        </div>
+                                                    @elseif($order->status == "paying")
+                                                        <div class="inline-flex relative size-3.5 justify-center -mb-[0.3rem]">
+                                                            <div class="absolute top-0 right-0 size-full bg-amber-400/70 animate-ping rounded-full"></div>
+                                                            <div class="size-3 justify-self-center self-center bg-amber-500 rounded-full"></div>
+                                                        </div>
+                                                    @elseif($order->status == "cancelled")
+                                                        <div class="inline-flex relative size-3.5 justify-center -mb-[0.3rem]">
+                                                            <div class="absolute top-0 right-0 size-full bg-red-400/70 animate-ping rounded-full"></div>
+                                                            <div class="size-3 justify-self-center self-center bg-red-500 rounded-full"></div>
+                                                        </div>
+                                                    @endif                                                
+                                                </div>
 
-                                        </td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">{{ $order->created_at }}</td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">{{ $order->close_at }}</td>
-                                    </tr>                                
-                                @endforeach
+                                            </td>
+                                            <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">{{ $order->created_at }}</td>
+                                            <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">{{ $order->close_at }}</td>
+                                        </tr>                                
+                                    @endforeach                                
+                                @endif
+
 
 
                             </tbody>

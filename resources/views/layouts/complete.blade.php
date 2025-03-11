@@ -135,7 +135,7 @@
                     <h3 class="text-gray-900 font-semibold text-sm">Popular Categories</h3>
                     <ul class="mt-6 space-y-4 text-gray-600 text-sm">
                         @foreach ($categories as $category)
-                            <li><a class="hover:text-indigo-600 hover:underline" href="/products">{{ $category->name }}</a></li>
+                            <li><a class="hover:text-indigo-600 hover:underline" href="/products?categories[]={{ $category->name }}">{{ $category->name }}</a></li>
                         @endforeach
                     </ul>
 

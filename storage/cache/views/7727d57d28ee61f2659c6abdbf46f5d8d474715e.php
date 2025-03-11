@@ -104,7 +104,7 @@
                     <?php endif; ?>
 
                     <div class="pt-4 grid grid-cols-2 gap-4">
-                        <a href="/checkout/cancel?<?php echo e($orderCode); ?>" class="block bg-white py-2 px-3 rounded border-2 w-full text-center">Cancel Order</a>
+                        <a href="/checkout/cancel?orderCode=<?php echo e($orderCode); ?>" class="block bg-white py-2 px-3 rounded border-2 w-full text-center">Cancel Order</a>
                         <button type="submit" class="shadow text-white font-semibold text-sm px-3 py-1.5 bg-indigo-600 rounded-md w-full">Pay</button>
                     </div>
 

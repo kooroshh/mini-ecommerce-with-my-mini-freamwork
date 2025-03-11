@@ -56,13 +56,12 @@ class Request
         }, $_REQUEST);
     }
 
-    public function input(string $key) : ?string
+    public function input(string $key) : mixed
     {
-
         return $this->all()[$key] ?? null;
     }
 
-    public function query(string $key) : ?string
+    public function query(string $key) : mixed
     {
         return $_POST[$key] ?? null;
     }

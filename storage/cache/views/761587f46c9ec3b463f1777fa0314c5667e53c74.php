@@ -135,7 +135,7 @@
                     <h3 class="text-gray-900 font-semibold text-sm">Popular Categories</h3>
                     <ul class="mt-6 space-y-4 text-gray-600 text-sm">
                         <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <li><a class="hover:text-indigo-600 hover:underline" href="/products"><?php echo e($category->name); ?></a></li>
+                            <li><a class="hover:text-indigo-600 hover:underline" href="/products?categories[]=<?php echo e($category->name); ?>"><?php echo e($category->name); ?></a></li>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>
 

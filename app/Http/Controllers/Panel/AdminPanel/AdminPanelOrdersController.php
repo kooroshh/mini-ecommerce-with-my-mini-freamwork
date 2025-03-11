@@ -20,34 +20,37 @@ class AdminPanelOrdersController extends Controller
                 ->select("users.id", "orders.order_index as orderCode", "orders.id as orderId", 'users.image', "users.email", "orders.status", "orders.created_at", "orders.close_at", "orders.price")
                 ->get();
 
-        $ordersWithProducts = [];
-        foreach($orders as $order)
+        if($orders)
         {
-            $userId = $order->id;
-            $orderId = $order->orderId;
-            $ordersWithProducts[$orderId] = (object) get_object_vars($order);
-            $ordersWithProducts[$orderId]->close_at = is_null($ordersWithProducts[$orderId]->close_at) ? "Not Closed" : $ordersWithProducts[$orderId]->close_at;
-            $ordersProducts = [];
-            $products = (new OrdersProducts())
-                ->join('products', "id", "orders_products.product_id")
-                ->where('orders_products.order_id', $orderId)
-                ->select("products.slug")
-                ->get();
-            
-            
-          
-            foreach($products as $product)
+            $ordersWithProducts = [];
+            foreach($orders as $order)
             {
-                $ordersProducts[$orderId][] = $product->slug;
-            }
-            $ordersWithProducts[$orderId]->productsSlugs = $ordersProducts[$orderId];
+                $orderId = $order->orderId;
+                $ordersWithProducts[$orderId] = (object) get_object_vars($order);
+                $ordersWithProducts[$orderId]->close_at = is_null($ordersWithProducts[$orderId]->close_at) ? "Not Closed" : $ordersWithProducts[$orderId]->close_at;
+                $ordersProducts = [];
+                $products = (new OrdersProducts())
+                    ->join('products', "id", "orders_products.product_id")
+                    ->where('orders_products.order_id', $orderId)
+                    ->select("products.slug")
+                    ->get();
 
-   
+                foreach($products as $product)
+                {
+                    $ordersProducts[$orderId][] = $product->slug;
+                }
+
+                $ordersWithProducts[$orderId]->productsSlugs = $ordersProducts[$orderId];
+            }
+
+        }else
+        {
+            $ordersWithProducts = false;
         }
 
 
         return $this->render("user.admin-panel.orders.admin-panel-orders",[
-            "orders" => $ordersWithProducts
+            "orders" => $ordersWithProducts,
         ]);
     }
 

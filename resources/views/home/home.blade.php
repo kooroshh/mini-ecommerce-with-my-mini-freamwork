@@ -15,7 +15,7 @@
 
     <div class="px-4">
 
-        <div class="mt-10 lg:p-10 sm:p-8 p-5">
+        <div class="mt-10 lg:p-10 sm:p-8 p-3">
             <img class="rounded-lg object-cover sm:w-9/12 mx-auto" src="{{ image('games.webp') }}" alt="Games">
         </div>
 
@@ -122,11 +122,11 @@
             </div>
 
             <a href="/products" class="block text-indigo-600 w-full text-end lg:px-10 mt-15 hover:underline">See all -></a>
-            <div class="flex justify-between w-full lg:px-10 mt-5">
+            <div class="flex flex-col lg:flex-row justify-between items-stretch text-center gap-y-3 w-full lg:px-10 mt-10">
                 
                 @foreach ($categories as $category)
-                    <a href="/products" class="block">
-                        <div class="p-5 bg-gray-50 rounded-md text-lg text-indigo-600">
+                    <a href="/products?categories[]={{ $category->name }}" class="block">
+                        <div class="py-5 lg:px-10 bg-gray-50 rounded-md text-lg text-indigo-600">
                             {{ $category->name }}
                         </div>
                     </a>
@@ -147,7 +147,7 @@
             </div>
 
             <a href="/products" class="block text-indigo-600 w-full text-end lg:px-10 mt-15 hover:underline">See all -></a>
-            <div class="grid grid-cols-3 gap-8 mt-10">
+            <div class="grid lg:grid-cols-3 grid-cols-1 gap-8 mt-10">
                 
                 @foreach ($products as $product)
                     

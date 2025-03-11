@@ -155,7 +155,7 @@
                         </div>
                         <div class="-mx-2">
 
-                            <a href="#"
+                            <a href="/panel"
                                 class="font-semibold text-sm rounded-md flex gap-3 items-center p-2 text-gray-200 {{ request()->is("/admin-panel/settings") ? "bg-indigo-700" : "hover:bg-indigo-700"}}">
 
                                 <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -219,9 +219,7 @@
 
                     <div class="flex items-center">
 
-                        <img class="bg-gray-100 rounded-full size-8 lg:mr-4" src="{{ image(auth()->user()->image, "users") }}"
-                            alt="User Image">
-                        <span class="hidden lg:block color-gray-900  font-semibold text-sm text-nowrap">{{ auth()->user()->name }}</span>
+                        <a href="/panel" class="justify-self-center flex justify-center items-center gap-2"><img class="size-8 rounded-full" src="{{ image(auth()->user()->image, "users") }}" alt="User Image"><span class="hidden lg:block color-gray-900  font-semibold text-sm text-nowrap">{{ auth()->user()->name }}</span></a>
 
                     </div>
 

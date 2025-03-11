@@ -46,47 +46,50 @@
                             </thead>
                             <tbody class="divide-y">
 
-                                <?php $__currentLoopData = $orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <tr>
+                                <?php if($orders): ?>
+                                    <?php $__currentLoopData = $orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <tr>
 
-                                        <td class="sm:pl-0 text-gray-400 whitespace-nowrap font-medium text-sm pl-4 pr-3 py-4">#<?php echo e($order->orderCode); ?></td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><img class="size-6 rounded-md" src="<?php echo e(image($order->image, "users")); ?>" alt="User Image"></td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($order->email); ?></td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3 min-w-48">
-                                            <div class="flex flex-wrap gap-3 w-full">
-                                                    <?php $__currentLoopData = $order->productsSlugs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slug): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <div class="px-2 py-1 bg-gray-50 rounded-full"><?php echo e($slug); ?></div>
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            </div>
-                                        </td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">$<?php echo e($order->price); ?></td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3 h-full">
-                                            <div class="flex items-center gap-2.5">
-                                                <?php echo e($order->status); ?>
+                                            <td class="sm:pl-0 text-gray-400 whitespace-nowrap font-medium text-sm pl-4 pr-3 py-4">#<?php echo e($order->orderCode); ?></td>
+                                            <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><img class="size-6 rounded-md" src="<?php echo e(image($order->image, "users")); ?>" alt="User Image"></td>
+                                            <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($order->email); ?></td>
+                                            <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3 min-w-48">
+                                                <div class="flex flex-wrap gap-3 w-full">
+                                                        <?php $__currentLoopData = $order->productsSlugs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slug): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <div class="px-2 py-1 bg-gray-50 rounded-full"><?php echo e($slug); ?></div>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                </div>
+                                            </td>
+                                            <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3">$<?php echo e($order->price); ?></td>
+                                            <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3 h-full">
+                                                <div class="flex items-center gap-2.5">
+                                                    <?php echo e($order->status); ?>
 
-                                                <?php if($order->status == "paid"): ?>
-                                                    <div class="inline-flex relative size-3.5 justify-center -mb-[0.3rem]">
-                                                        <div class="absolute top-0 right-0 size-full bg-green-400/70 animate-ping rounded-full"></div>
-                                                        <div class="size-3 justify-self-center self-center bg-green-500 rounded-full"></div>
-                                                    </div>
-                                                <?php elseif($order->status == "paying"): ?>
-                                                    <div class="inline-flex relative size-3.5 justify-center -mb-[0.3rem]">
-                                                        <div class="absolute top-0 right-0 size-full bg-amber-400/70 animate-ping rounded-full"></div>
-                                                        <div class="size-3 justify-self-center self-center bg-amber-500 rounded-full"></div>
-                                                    </div>
-                                                <?php elseif($order->status == "cancelled"): ?>
-                                                    <div class="inline-flex relative size-3.5 justify-center -mb-[0.3rem]">
-                                                        <div class="absolute top-0 right-0 size-full bg-red-400/70 animate-ping rounded-full"></div>
-                                                        <div class="size-3 justify-self-center self-center bg-red-500 rounded-full"></div>
-                                                    </div>
-                                                <?php endif; ?>                                                
-                                            </div>
+                                                    <?php if($order->status == "paid"): ?>
+                                                        <div class="inline-flex relative size-3.5 justify-center -mb-[0.3rem]">
+                                                            <div class="absolute top-0 right-0 size-full bg-green-400/70 animate-ping rounded-full"></div>
+                                                            <div class="size-3 justify-self-center self-center bg-green-500 rounded-full"></div>
+                                                        </div>
+                                                    <?php elseif($order->status == "paying"): ?>
+                                                        <div class="inline-flex relative size-3.5 justify-center -mb-[0.3rem]">
+                                                            <div class="absolute top-0 right-0 size-full bg-amber-400/70 animate-ping rounded-full"></div>
+                                                            <div class="size-3 justify-self-center self-center bg-amber-500 rounded-full"></div>
+                                                        </div>
+                                                    <?php elseif($order->status == "cancelled"): ?>
+                                                        <div class="inline-flex relative size-3.5 justify-center -mb-[0.3rem]">
+                                                            <div class="absolute top-0 right-0 size-full bg-red-400/70 animate-ping rounded-full"></div>
+                                                            <div class="size-3 justify-self-center self-center bg-red-500 rounded-full"></div>
+                                                        </div>
+                                                    <?php endif; ?>                                                
+                                                </div>
 
-                                        </td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($order->created_at); ?></td>
-                                        <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($order->close_at); ?></td>
-                                    </tr>                                
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            </td>
+                                            <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($order->created_at); ?></td>
+                                            <td class="text-gray-500 whitespace-nowrap text-sm py-4 px-3"><?php echo e($order->close_at); ?></td>
+                                        </tr>                                
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                
+                                <?php endif; ?>
+
 
 
                             </tbody>

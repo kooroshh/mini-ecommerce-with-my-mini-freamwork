@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers\Panel\AdminPanel;
 
 use App\Models\Categories;
+use App\Models\Orders;
 use App\Models\Products;
 use App\Models\ProductsCategories;
 use App\Models\User;
@@ -57,6 +58,7 @@ class AdminPanelProductsController extends Controller
 
         if(!isAdmin())
             return $this->render("errors.404");
+        $userId = auth()->user()->id;
 
 
         $productId = request()->input("productId");
@@ -65,12 +67,22 @@ class AdminPanelProductsController extends Controller
 
 
         $categories = (new ProductsCategories())->where('product_id', $productId)->get();
-        
+        $orders = (new Orders())
+                    ->join('orders_products', "order_id", "orders.id")
+                    ->where('user_id', $userId)
+                    ->where('product_id', $productId)
+                    ->select('orders.id as orderId')
+                    ->get();
 
 
         foreach($categories as $category)
         {
             (new ProductsCategories())->delete($category->product_id,"product_id");
+        }
+
+        foreach($orders as $order)
+        {
+            (new Orders())->delete($order->orderId);
         }
 
         (new Products())->delete($productId);

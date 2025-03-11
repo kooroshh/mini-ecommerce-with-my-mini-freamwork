@@ -15,7 +15,15 @@ class ProductsController extends Controller
         if(is_null($productsIds))
         {
             $search = false;
-            $lastCategories = false;
+            $lastCategories = request()->input('categories');
+
+            if(!is_null($lastCategories))
+            {
+                return $this->filterProducts([
+                    "categories" => $lastCategories,
+                ], 'filter');
+            }
+
             $products = (new Products())
             ->select('image', "name", "description", "price", "count", "slug")
             ->get();
@@ -46,10 +54,13 @@ class ProductsController extends Controller
         ]);
     }
 
-    public function filterProducts()
+    public function filterProducts(?array $categoriesData = null, ?string $filteredMethod = null)
     {
 
         $filterMethod = request()->input('filter');
+        if(!is_null($filteredMethod))
+            $filterMethod = $filteredMethod;
+
         $methods = ['filter', "search"];
         $result = true;
 
@@ -68,9 +79,11 @@ class ProductsController extends Controller
         if($filterMethod == "filter")
         {
             $data = request()->all();
+            if(!is_null($categoriesData))
+                $data = $categoriesData;
             
             $validation = $this->validate($data, [
-                "categories" => "required|array",
+                "categories" => "array",
             ],[
                 "categories:required" => "Please select at least one category",
                 "categories:array" => "Wrong input",
@@ -82,6 +95,7 @@ class ProductsController extends Controller
             }
 
             $categories = $validation->getValidData()['categories'];
+
             $products = [];
 
             foreach($categories as $category)
