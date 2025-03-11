@@ -164,7 +164,7 @@ class CheckoutController extends Controller
             "close_at" => $date
         ], "order_index");
 
-        dd("thank you");
+        return redirect('/panel/orders');
         
 
     }
@@ -204,7 +204,9 @@ class CheckoutController extends Controller
             "close_at" => $date
         ], "order_index");
 
-        dd("Canceled");
+        
+
+        return redirect('/panel/orders');
         
 
     }

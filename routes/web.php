@@ -14,6 +14,11 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SignInController;
 use App\Http\Controllers\Checkout\CheckoutController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Panel\UserPanel\UserPanelAccountController;
+use App\Http\Controllers\Panel\UserPanel\UserPanelChangePasswordController;
+use App\Http\Controllers\Panel\UserPanel\UserPanelDeleteController;
+use App\Http\Controllers\Panel\UserPanel\UserPanelLogoutController;
+use App\Http\Controllers\Panel\UserPanel\UserPanelOrdersController;
 use App\Http\Controllers\Product\ProductsController;
 use App\Http\Controllers\Product\SingleProductController;
 use App\Http\Controllers\ShoppingCart\ShoppingCartController;
@@ -106,3 +111,20 @@ Router::post('/checkout/pay', [CheckoutController::class, "pay"]);
 
 Router::get('/', [HomeController::class, "homeView"]);
 
+// User Panel
+
+
+
+Router::get('/panel', [UserPanelAccountController::class, "accountView"]);
+Router::post('/panel/edit', [UserPanelAccountController::class, "accountEdit"]);
+
+Router::get('/panel/logout', [UserPanelLogoutController::class, "logoutView"]);
+Router::post('/panel/logout', [UserPanelLogoutController::class, "logout"]);
+
+Router::get('/panel/delete', [UserPanelDeleteController::class, "deleteView"]);
+Router::post('/panel/delete', [UserPanelDeleteController::class, "delete"]);
+
+Router::get('/panel/change-password', [UserPanelChangePasswordController::class, "changePasswordView"]);
+Router::post('/panel/change-password', [UserPanelChangePasswordController::class, "changePassword"]);
+
+Router::get('/panel/orders', [UserPanelOrdersController::class, "ordersView"]);

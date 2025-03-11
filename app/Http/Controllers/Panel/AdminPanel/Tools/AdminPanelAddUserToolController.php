@@ -24,24 +24,24 @@ class AdminPanelAddUserToolController extends Controller
 
 
         $validation = $this->validate(request()->all(),[
-            "name" => "required|min:5|max:255",
-            "email" => "required|email|max:255|unique:users,email",
-            "password" => "required|min:5|max:255",
-            "confirm_password" => "required|same:password|max:255",
+            "name" => "required|min:5|max:191",
+            "email" => "required|email|max:191|unique:users,email",
+            "password" => "required|min:5|max:191",
+            "confirm_password" => "required|same:password|max:191",
         ],[
             "name:required" => "Name Cant Be Empty",
             "name:min" => "Name Cant Be Lower Than 5",
-            "name:max" => "Name Cant Be Bigger Than 255",
+            "name:max" => "Name Cant Be Bigger Than 191",
             "email:email" => "Email Is Wrong",
             "email:required" => "Email Cant Be Empty",
-            "email:max" => "Email Cant Be Bigger Than 255",
+            "email:max" => "Email Cant Be Bigger Than 191",
             "email:unique" => "Email Already Used",
             "password:required" => "Password Cant Be Empty",
             "password:min" => "Password Cant Be Lower Than 5",
-            "password:max" => "Confirm Password Cant Be Bigger Than 255",
+            "password:max" => "Confirm Password Cant Be Bigger Than 191",
             "confirm_password:required" => "Confirm Password Cant Be Empty",
             "confirm_password:same" => "Confirm Password Is Wrong",
-            "confirm_password:max" => "Confirm Password Cant Be Bigger Than 255",
+            "confirm_password:max" => "Confirm Password Cant Be Bigger Than 191",
         ]);
 
         if ($validation->fails()) {

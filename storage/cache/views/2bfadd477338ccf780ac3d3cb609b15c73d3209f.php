@@ -16,7 +16,7 @@
             
             <div class="flex flex-col justify-center items-center gap-2 mx-auto">
                 <div>
-                    <img id="productImage" class="w-2/12 mx-auto rounded-md" src="<?php echo e(image('product.webp', "products")); ?>" alt="Product Image">
+                    <img id="objectImage" class="w-2/12 mx-auto rounded-md" src="<?php echo e(image('product.webp', "products")); ?>" alt="Product Image">
                 </div>
                 <label id="image" class="cursor-pointer block bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-indigo-700 transition">
                     Select Image

@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    const img = document.getElementById('productImage');
+                    const img = document.getElementById('objectImage');
                     img.src = e.target.result;
                 }
                 reader.readAsDataURL(file);

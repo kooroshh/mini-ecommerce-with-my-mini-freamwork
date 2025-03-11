@@ -21,16 +21,16 @@ class SignInController extends Controller
             return redirect('/admin-panel');
 
         $validation = $this->validate(request()->all(),[
-            "email" => "required|email|max:255|exist:users,email,is_ban,false",
-            "password" => "required|min:5|max:255",
+            "email" => "required|email|max:191|exist:users,email,is_ban,false",
+            "password" => "required|min:5|max:191",
         ],[
             "email:email" => "Email Is Wrong",
             "email:required" => "Email Cant Be Empty",
-            "email:max" => "Email Cant Be Bigger Than 255",
+            "email:max" => "Email Cant Be Bigger Than 191",
             "email:exist" => "Email Is Not exists",
             "password:required" => "Password Cant Be Empty",
             "password:min" => "Password Cant Be Lower Than 5",
-            "password:max" => "Confirm Password Cant Be Bigger Than 255",
+            "password:max" => "Confirm Password Cant Be Bigger Than 191",
         ]);
 
         if ($validation->fails()) {

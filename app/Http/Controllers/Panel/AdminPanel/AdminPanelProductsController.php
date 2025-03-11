@@ -147,8 +147,8 @@ class AdminPanelProductsController extends Controller
 
 
         $validation = $this->validate($data + $_FILES,[
-            "name" => "required|min:5|max:255",
-            "slug" => "required|max:255|min:5|unique:products,slug",
+            "name" => "required|min:5|max:191",
+            "slug" => "required|max:191|min:5|unique:products,slug",
             "description" => "required|min:5",
             "price" => "required|numeric",
             "count" => "required|numeric",
@@ -157,9 +157,9 @@ class AdminPanelProductsController extends Controller
         ],[
             "name:required" => "Name Cant Be Empty",
             "name:min" => "Name Cant Be Lower Than 5",
-            "name:max" => "Name Cant Be Bigger Than 255",
+            "name:max" => "Name Cant Be Bigger Than 191",
             "slug:required" => "Slug Cant Be Empty",
-            "slug:max" => "Slug Cant Be Bigger Than 255",
+            "slug:max" => "Slug Cant Be Bigger Than 191",
             "slug:min" => "Slug Cant Be Lower Than 5",
             "slug:unique" => "Slug Already Exist",
             "description:required" => "Description Cant Be Empty",

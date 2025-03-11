@@ -188,10 +188,10 @@
         <div class="lg:w-9/12 w-full ml-auto">
 
             <div
-                class="px-4 lg:px-8 border-b-2 border-gray-200 min-h-16 w-full flex items-center sticky top-0 z-5 bg-white" id="navbar">
+                class="px-4 lg:px-8 border-b-2 border-gray-200 min-h-16 w-full flex items-center lg:justify-end justify-between sticky top-0 z-5 bg-white" id="navbar">
 
                 <div id="menuToggler"
-                    class="flex justify-center lg:hidden items-center pr-2 mr-2 border-r-2 border-gray-100 h-fit">
+                    class="flex justify-center lg:hidden items-center pr-2 h-fit">
 
                     <svg class="size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
@@ -200,21 +200,6 @@
                     </svg>
 
                 </div>
-                <form action="#" class="flex flex-row items-center grow ">
-
-
-
-                    <svg class="size-5 mr-3 fill-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                        fill="currentColor" aria-hidden="true" data-slot="icon">
-                        <path fill-rule="evenodd"
-                            d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-
-                    <input class="focus:outline-none text-sm text-gray-900 w-full h-full" type="search" name="search"
-                        id="search" placeholder="Search">
-
-                </form>
                 <div class="flex flex-row items-center gap-2">
 
                     <div class="flex items-center">

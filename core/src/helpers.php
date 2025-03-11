@@ -89,11 +89,31 @@ if(!function_exists("saveImage"))
         $imageName = $image['name'];
         $image = $image["tmp_name"];
         $path = app()::$MAIN_ROUTE . "/public/assets/images/" . ($path != "" ? "$path" : "");
+        
+        $files = false;
+        
+        if(is_dir($path))
+        {
+            $files = array_diff(scandir($path), ['.', '..']);
+        }
+
         $result = $path . "/$imageName";
         if(!file_exists($path))
         {
             mkdir($path);
         }
+
+        if($files)
+        {
+            foreach ($files as $file) 
+            {
+                $filePath = $path . DIRECTORY_SEPARATOR . $file; 
+                unlink($filePath); 
+                
+            }  
+        }
+
+
         move_uploaded_file($image, $result);
         return $image;
     }

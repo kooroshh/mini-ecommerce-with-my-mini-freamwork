@@ -7,7 +7,7 @@ return new class{
     {
         $sql = "CREATE TABLE products(
                 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                slug VARCHAR(255) NOT NULL UNIQUE,
+                slug VARCHAR(191) NOT NULL UNIQUE,
                 name VARCHAR(255) NOT NULL,
                 image VARCHAR(255) NULL,
                 description TEXT NOT NULL,

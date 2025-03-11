@@ -8,7 +8,7 @@ return new class{
         $sql = "CREATE TABLE users(
                 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
                 name VARCHAR(255) NOT NULL,
-                email VARCHAR(255) NOT NULL UNIQUE,
+                email VARCHAR(191) NOT NULL UNIQUE,
                 image VARCHAR(255) NULL,
                 password VARCHAR(255) NOT NULL,
                 is_admin BOOLEAN NOT NULL DEFAULT 0,

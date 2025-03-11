@@ -7,7 +7,7 @@ return new class{
     {
         $sql = "CREATE TABLE categories(
                 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                name VARCHAR(255) NOT NULL UNIQUE
+                name VARCHAR(191) NOT NULL UNIQUE
         );";
         app()->db->pdo->exec($sql);
     }

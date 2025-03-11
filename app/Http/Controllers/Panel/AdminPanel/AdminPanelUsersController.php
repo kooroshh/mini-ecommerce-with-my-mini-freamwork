@@ -163,11 +163,11 @@ class AdminPanelUsersController extends Controller
 
 
         $validation = $this->validate(request()->all(),[
-            "name" => "required|min:5|max:255",
+            "name" => "required|min:5|max:191",
         ],[
             "name:required" => "Name Cant Be Empty",
             "name:min" => "Name Cant Be Lower Than 5",
-            "name:max" => "Name Cant Be Bigger Than 255",
+            "name:max" => "Name Cant Be Bigger Than 191",
         ]);
 
         $userId = request()->input('id');

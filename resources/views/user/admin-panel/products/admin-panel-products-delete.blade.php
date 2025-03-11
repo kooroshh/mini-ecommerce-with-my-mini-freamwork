@@ -4,7 +4,7 @@
 @section("title", "Admin Panel")
 
 @section("page")
-<a href="/admin-panel/products" class="pr-3 text-2xl leading-8 text-gray-400 font-medium">Products /</a> Delete
+    <a href="/admin-panel/products" class="pr-3 text-2xl leading-8 text-gray-400 font-medium">Products /</a> Delete
 @endsection
 
 
