@@ -11,7 +11,6 @@ class ProductsController extends Controller
     public function productsView()
     {
         $productsIds = session()->flash('productsIds');
-
         if(is_null($productsIds))
         {
             $search = false;
@@ -45,6 +44,7 @@ class ProductsController extends Controller
         $categories = (new Categories())
                         ->select('name')
                         ->get();
+
 
         return $this->render('products.products', [
             "categories" => $categories,
@@ -83,12 +83,11 @@ class ProductsController extends Controller
                 $data = $categoriesData;
             
             $validation = $this->validate($data, [
-                "categories" => "array",
+                "categories" => "required|array",
             ],[
                 "categories:required" => "Please select at least one category",
                 "categories:array" => "Wrong input",
             ]);
-
             if($validation->fails())
             {
                 return redirect('/products');
@@ -170,7 +169,6 @@ class ProductsController extends Controller
             {
                 $productsIds[] = $product->productId;
             }
-            
 
             session()->flash('productsIds', $productsIds);
             session()->flash("search", $search);
