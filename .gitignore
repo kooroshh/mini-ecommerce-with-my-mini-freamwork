@@ -4,3 +4,7 @@ composer.lock
 package-lock.json
 .vscode/
 public/css/main.css
+public/images/users/* 
+public/images/products/* 
+!public/images/products/product.webp
+!public/images/users/user.webp
