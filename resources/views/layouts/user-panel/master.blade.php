@@ -118,7 +118,7 @@
 
                 </div>
                 <div id="menuToggler2" class="pt-5 flex lg:hidden w-3/12 h-fit justify-center items-center">
-                    <svg class="text-white size-6 blcok" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    <svg class="text-white size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                         stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
                     </svg>
@@ -130,7 +130,7 @@
         <div class="lg:w-9/12 w-full ml-auto">
 
             <div
-                class="px-4 lg:px-8 border-b-2 border-gray-200 min-h-16 w-full flex items-center lg:justify-end justify-between sticky top-0 z-5 bg-white" id="navbar">
+                class="px-4 lg:px-8 border-b-2 border-gray-200 min-h-16 w-full flex items-center lg:justify-end justify-between sticky top-0 z-50 bg-white" id="navbar">
 
                 <div id="menuToggler"
                     class="flex justify-center lg:hidden items-center pr-2 h-fit">

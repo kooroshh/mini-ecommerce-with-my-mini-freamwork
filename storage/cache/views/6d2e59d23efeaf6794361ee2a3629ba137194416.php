@@ -39,30 +39,38 @@
 
                                 <div class="sm:p-6 border-b p-4 flex items-center sm:gap-x-6">
 
-                                    <div class="flex justify-between w-full text-sm gap-x-6">
+                                    <div class="flex flex-col sm:flex-row justify-between w-full text-sm gap-x-6">
 
-                                        <div>
-                                            <h5 class="text-gray-900 font-medium">Order Code</h5>
-                                            <p class="text-gray-500 mt-1">#<?php echo e($order->orderCode); ?></p>
+                                        <div class="flex sm:w-6/12 sm:justify-evenly justify-between mb-5">
+
+                                            <div>
+                                                <h5 class="text-gray-900 font-medium">Order Code</h5>
+                                                <p class="text-gray-500 mt-1">#<?php echo e($order->orderCode); ?></p>
+                                            </div>
+
+                                            <div>
+                                                <h5 class="text-gray-900 font-medium">Date Placed</h5>
+                                                <p class="text-gray-500 mt-1"><?php echo e(explode(' ', $order->created_at)[0]); ?></p>
+                                            </div>
+
                                         </div>
 
-                                        <div>
-                                            <h5 class="text-gray-900 font-medium">Date Placed</h5>
-                                            <p class="text-gray-500 mt-1"><?php echo e(explode(' ', $order->created_at)[0]); ?></p>
-                                        </div>
+                                        <div class="flex sm:w-6/12 sm:justify-evenly justify-between">
 
-                                        <div>
-                                            <h5 class="text-gray-900 font-medium">Close Time</h5>
-                                            <?php if(preg_match('/\d/', $order->close_at)): ?>
-                                                <p class="text-gray-500 mt-1"><?php echo e(explode(' ', $order->close_at)[0]); ?></p>
-                                            <?php else: ?>
-                                                <p class="text-gray-500 mt-1"><?php echo e($order->close_at); ?></p>
-                                            <?php endif; ?>
-                                        </div>
+                                            <div>
+                                                <h5 class="text-gray-900 font-medium">Close Time</h5>
+                                                <?php if(preg_match('/\d/', $order->close_at)): ?>
+                                                    <p class="text-gray-500 mt-1"><?php echo e(explode(' ', $order->close_at)[0]); ?></p>
+                                                <?php else: ?>
+                                                    <p class="text-gray-500 mt-1"><?php echo e($order->close_at); ?></p>
+                                                <?php endif; ?>
+                                            </div>
 
-                                        <div>
-                                            <h5 class="text-gray-900 font-medium">Total Amount</h5>
-                                            <p class="text-gray-500 mt-1">$<?php echo e($order->price); ?></p>
+                                            <div>
+                                                <h5 class="text-gray-900 font-medium">Total Amount</h5>
+                                                <p class="text-gray-500 mt-1">$<?php echo e($order->price); ?></p>
+                                            </div>
+
                                         </div>
 
                                     </div>
@@ -75,9 +83,9 @@
                                     
                                         <li class="sm:p-6 p-4">
 
-                                            <div class="flex sm:items-start items-center">
+                                            <div class="flex flex-col sm:flex-row sm:items-start items-center">
 
-                                                <div class="bg-gray-200 rounded-lg overflow-hidden shrink-0 size-20 sm:size-40">
+                                                <div class="bg-gray-200 rounded-lg overflow-hidden shrink-0 size-20 sm:size-40 mb-2 sm:mb-0">
                                                     <img class="object-cover size-full" src="<?php echo e(image($product->image, "products")); ?>" alt="Product Image">
                                                 </div>
                                                 
@@ -119,7 +127,7 @@
                                                     <?php endif; ?>                                                
                                                 </div>
 
-                                                <div class="sm:pt-0 pt-4 sm:border-none border sm:ml-4 sm:mt-0 mt-6 font-medium text-sm flex items-center divide-x">
+                                                <div class="sm:pt-0 pt-4 sm:border-none sm:ml-4 sm:mt-0 mt-6 font-medium text-sm flex items-center divide-x">
 
                                                     <div class="pr-4 flex-1 flex justify-center">
                                                         <a href="/products/<?php echo e($product->slug); ?>" class="text-indigo-600 whitespace-nowrap">View Product</a>

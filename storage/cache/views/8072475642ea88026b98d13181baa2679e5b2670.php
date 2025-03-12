@@ -188,7 +188,7 @@
         <div class="lg:w-9/12 w-full ml-auto">
 
             <div
-                class="px-4 lg:px-8 border-b-2 border-gray-200 min-h-16 w-full flex items-center lg:justify-end justify-between sticky top-0 z-5 bg-white" id="navbar">
+                class="px-4 lg:px-8 border-b-2 border-gray-200 min-h-16 w-full flex items-center lg:justify-end justify-between sticky top-0 z-50 bg-white" id="navbar">
 
                 <div id="menuToggler"
                     class="flex justify-center lg:hidden items-center pr-2 h-fit">

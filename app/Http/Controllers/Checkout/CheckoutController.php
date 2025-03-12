@@ -2,6 +2,7 @@
 
 use App\Models\Orders;
 use App\Models\OrdersProducts;
+use App\Models\Products;
 use App\Models\ShoppingCart;
 use Main\Core\Controller;
 
@@ -157,6 +158,25 @@ class CheckoutController extends Controller
         if($orderStatus != "paying")
         {
             return redirect('/shopping-cart');
+        }
+
+        $products = (new Products())
+                    ->join('orders_products', "product_id", "products.id")
+                    ->where('order_id',$orderId)
+                    ->select('products.id as productId')
+                    ->get();
+
+        foreach($products as $product)
+        {
+            $productCount = (new Products())
+                            ->select('count')
+                            ->find($product->productId);
+            
+            $productCount->count--;
+
+            (new Products())->update($product->productId, [
+                'count' => $productCount->count,
+            ]);
         }
 
         (new Orders())->update($orderCode, [

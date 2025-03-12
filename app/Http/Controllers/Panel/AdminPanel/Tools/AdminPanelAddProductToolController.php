@@ -32,7 +32,7 @@ class AdminPanelAddProductToolController extends Controller
             "slug" => "required|max:191|min:5|unique:products,slug",
             "description" => "required|min:5",
             "price" => "required|numeric",
-            "count" => "required|numeric",
+            "count" => "required|numeric|min:0",
             "categories" => "required|array",
             "image" => "uploaded_file:0,500K,png,jpeg,jpg",
         ],[
@@ -49,6 +49,7 @@ class AdminPanelAddProductToolController extends Controller
             "price:numeric" => "Price Should Be A Number",
             "count:required" => "Count Cant Be Empty",
             "count:numeric" => "Count Should Be A Number",
+            "count:min" => "Count Cant Be Lower Than 0",
             "categories:required" => "Categories Cant Be Empty",
             "categories:array" => "Categories Should Be A List",
             "image:uploaded_file" => "Image Should Be A Image",

@@ -1,6 +1,6 @@
 
 
-<?php $__env->startSection("Sign In Page"); ?>
+<?php $__env->startSection('title', "Sign In Page"); ?>
 
 
 <?php $__env->startSection('content'); ?>
