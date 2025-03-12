@@ -91,8 +91,8 @@ class Migrations
     {
         $sql = "CREATE TABLE IF NOT EXISTS migrations(
             id INT PRIMARY KEY AUTO_INCREMENT,
-            migration VARCHAR(255) NOT NULL,
-            batch VARCHAR(255) NOT NULL,
+            migration VARCHAR(191) NOT NULL,
+            batch VARCHAR(191) NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         ) ENGINE=INNODB";
         $this->db->pdo->exec($sql);

@@ -6,7 +6,7 @@
 @section('content')
 
     <h1>Unknown Error</h1>
-    <p>{{ $error }}</p>
+    <!-- <p>{{ $error }}</p> -->
 
 @endsection
 

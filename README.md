@@ -24,11 +24,11 @@ mini-php-framework/
 │── resources/
 │── routes/
 │── storage/
+│── .gitignore
 │── composer.json
 │── package.json
-│── tailwind.config.js
-│── .gitignore
 │── README.md
+│── tailwind.config.js
 ```
 
 ## Important Notes
