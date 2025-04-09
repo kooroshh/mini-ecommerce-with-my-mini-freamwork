@@ -14,14 +14,14 @@
         }
     ],
     "require": {
-        "main/core" : "dev-master",
+        "main/core" : "dev-main",
         "rakit/validation": "^1.4",
         "jenssegers/blade": "v1.4.0"
     },
     "repositories": [
         {
             "type" :"path",
-            "url": "core"
+            "url": "./core"
         }
     ]
 }
