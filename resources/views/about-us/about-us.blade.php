@@ -23,7 +23,7 @@
             <div class="mt-6 flex flex-col md:flex-row">
 
                 <div class="md:w-7/12 flex items-center">
-                    <p class="text-gray-600 text-xl leading-8">At [Store Name], we aim to provide gamers with the best selection of games at unbeatable prices. We’re dedicated to offering an exceptional gaming experience, from fast downloads to exclusive content and amazing discounts. Join us and elevate your gaming journey today!</p>
+                    <p class="text-gray-600 text-xl leading-8">At Here, we aim to provide gamers with the best selection of games at unbeatable prices. We’re dedicated to offering an exceptional gaming experience, from fast downloads to exclusive content and amazing discounts. Join us and elevate your gaming journey today!</p>
                 </div>
                 <div class="flex justify-center md:w-5/12">
                     <div class=" flex flex-col space-y-8 mt-10 md:mt-0">
